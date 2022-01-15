@@ -7,13 +7,14 @@ public class PlayerMoveController : MonoBehaviour
     private Rigidbody2D RB;
     [SerializeField]private float moveSpeed = 5f;
     Vector2 moveInput;
-    Vector2 screenBorders;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
         AliveCheck.changeAliveState(true);
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -21,7 +22,9 @@ public class PlayerMoveController : MonoBehaviour
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
-        
+
+        anim.SetFloat("X", moveInput.x);
+        anim.SetFloat("Y", moveInput.y);
         moveInput = moveInput.normalized;
         
         
