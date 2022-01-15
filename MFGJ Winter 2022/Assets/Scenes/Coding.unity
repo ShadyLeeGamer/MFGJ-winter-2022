@@ -717,18 +717,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crop
       objectReference: {fileID: 0}
-    - target: {fileID: 7792568537917678290, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792568537917678290, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792568537917678290, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
-      propertyPath: m_Color.r
-      value: 0.22821665
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
 --- !u!4 &1857160135 stripped

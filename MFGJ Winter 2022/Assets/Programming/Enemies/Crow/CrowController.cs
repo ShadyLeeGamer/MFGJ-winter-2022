@@ -13,6 +13,7 @@ public class CrowController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float fleespeed = 10f;
+    [SerializeField] private float power = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,7 @@ public class CrowController : MonoBehaviour
     public void startCrow(CropController newtarget)
     {
         target = newtarget;
+        newtarget.killed += killedPlant;
     }
 
     void moveCrow()
@@ -54,10 +56,15 @@ public class CrowController : MonoBehaviour
 
     void attackCrop()
     {
-        Debug.Log("yumyum");
-        ScareCrow(targetPosition.position);
+        target.attackCrop(power);
+        
     }
 
+    void killedPlant()
+    {
+        ScareCrow(targetPosition.position);
+    }
+    
     void scaredCrow()
     {
         

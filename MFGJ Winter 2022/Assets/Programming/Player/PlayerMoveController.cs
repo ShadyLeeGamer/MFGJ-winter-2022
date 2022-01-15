@@ -13,7 +13,7 @@ public class PlayerMoveController : MonoBehaviour
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
-        
+        AliveCheck.changeAliveState(true);
     }
 
     // Update is called once per frame
@@ -36,4 +36,20 @@ public class PlayerMoveController : MonoBehaviour
     }
 
     
+}
+
+
+public static class AliveCheck
+{
+    static bool alive = true;
+
+    public static bool TestForAlive()
+    {
+        return alive;
+    }
+
+    public static void changeAliveState(bool state)
+    {
+        alive = state;
+    }
 }

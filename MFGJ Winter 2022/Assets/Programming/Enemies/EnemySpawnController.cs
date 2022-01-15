@@ -13,6 +13,16 @@ public class EnemySpawnController : MonoBehaviour
 
     Vector2 borders;
 
+    #region singleton
+    public static EnemySpawnController s;
+    private void Awake()
+    {
+        s = this;
+    }
+
+    #endregion
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,17 +44,30 @@ public class EnemySpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer <= 0)
+        if (AliveCheck.TestForAlive())
         {
-            SpawnBird(spawn);
-            timer = 1 / spawnsPSec;
+            if (timer <= 0)
+            {
+                SpawnBird(spawn);
+                timer = 1 / spawnsPSec;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
         }
-        else
-        {
-            timer -= Time.deltaTime;
-        }
+        
     }
 
+    public void removePlant(CropController target)
+    {
+        activeCrops.Remove(target);
+        if(activeCrops.Count == 0)
+        {
+            Debug.Log("lost");
+            AliveCheck.changeAliveState(false);
+        }
+    }
 
     void SpawnBird(GameObject objectToSpawn)
     {
@@ -73,7 +96,7 @@ public class EnemySpawnController : MonoBehaviour
         }
 
         position += new Vector3(borders.x * x, borders.y * y);
-        Debug.Log(position);
+        
         return position;
     }
 }
