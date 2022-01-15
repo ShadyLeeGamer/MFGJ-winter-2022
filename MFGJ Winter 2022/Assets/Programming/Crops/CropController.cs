@@ -30,6 +30,7 @@ public class CropController : MonoBehaviour
         if(_health < 0)
         {
             alive = false;
+            
             killed?.Invoke();
             EnemySpawnController.s.removePlant(this);
         }

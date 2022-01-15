@@ -18,7 +18,6 @@ public class CrowController : MonoBehaviour
     void Start()
     {
         state = crowState.moving;
-        
         targetPosition = target.transform;
     }
 
@@ -45,7 +44,7 @@ public class CrowController : MonoBehaviour
     public void startCrow(CropController newtarget)
     {
         target = newtarget;
-        newtarget.killed += killedPlant;
+        target.killed += killedPlant;
     }
 
     void moveCrow()
@@ -71,6 +70,8 @@ public class CrowController : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
         if(transform.position == movePosition)
         {
+            
+            
             Destroy(gameObject);
         }
     }
@@ -80,6 +81,9 @@ public class CrowController : MonoBehaviour
         var runawaydirection = playerPosition - transform.position;
         runawaydirection *= -1;
         state = crowState.scared;
+
+        target.killed -= killedPlant;
+        
         movePosition = transform.position + runawaydirection * 500;
     }
 

@@ -35,13 +35,24 @@ public class PlayerMoveController : MonoBehaviour
         
     }
 
-    
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Crow"))
+        {
+            collision.GetComponent<CrowController>().ScareCrow(transform.position);
+        }
+    }
+
+
 }
 
 
 public static class AliveCheck
 {
     static bool alive = true;
+    public delegate void deathVoid();
+    public static event deathVoid DeathTrigger;
+
 
     public static bool TestForAlive()
     {
@@ -51,5 +62,9 @@ public static class AliveCheck
     public static void changeAliveState(bool state)
     {
         alive = state;
+        if (!alive)
+        {
+            DeathTrigger?.Invoke();
+        }
     }
 }
