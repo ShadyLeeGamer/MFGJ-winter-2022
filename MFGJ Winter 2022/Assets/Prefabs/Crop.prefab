@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  regenPSec: 0.5
+  AutoHealDelay: 3
   alive: 1
   healthcolors:
     serializedVersion: 2
