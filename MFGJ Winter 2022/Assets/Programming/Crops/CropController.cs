@@ -28,33 +28,37 @@ public class CropController : MonoBehaviour
 
     public void Update()
     {
-        if (healthStore > _health)
+        if (alive)
         {
-            healthStore = _health;
-            timer = AutoHealDelay;
-        }
-        else
-        {
-            if (attacked)
+            if (healthStore > _health)
             {
-                timer -= Time.deltaTime;
-                if(timer <= 0)
-                {
-                    attacked = false;
-                }
+                healthStore = _health;
+                timer = AutoHealDelay;
             }
             else
             {
-                _health += regenPSec * Time.deltaTime;
-                SR.color = healthcolors.Evaluate(_health / health);
-                if (_health > health)
+                if (attacked)
                 {
-                    _health = health;
+                    timer -= Time.deltaTime;
+                    if (timer <= 0)
+                    {
+                        attacked = false;
+                    }
                 }
-            }
-            healthStore = _health;
+                else
+                {
+                    _health += regenPSec * Time.deltaTime;
+                    SR.color = healthcolors.Evaluate(_health / health);
+                    if (_health > health)
+                    {
+                        _health = health;
+                    }
+                }
+                healthStore = _health;
 
+            }
         }
+        
     }
 
     public void attackCrop(float damage)

@@ -74,7 +74,19 @@ public class EnemySpawnController : MonoBehaviour
         var spawnPisition = CalculateSpawnPosition();
         int target = Random.Range(0, activeCrops.Count);
         var bird = Instantiate(objectToSpawn, spawnPisition, Quaternion.Euler(Vector3.zero));
-        bird.GetComponent<CrowController>().startCrow(activeCrops[target]);
+        bird.GetComponent<CrowController>().startCrow(activeCrops[target], this);
+    }
+
+
+    public CropController getNewTarget()
+    {
+        int target = Random.Range(0, activeCrops.Count);
+        if(activeCrops.Count > 0)
+        {
+            return activeCrops[target];
+        }
+        return null;
+        
     }
 
     Vector3 CalculateSpawnPosition()

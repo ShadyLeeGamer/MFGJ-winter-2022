@@ -4,21 +4,28 @@ using UnityEngine;
 
 
 public enum crowState {moving, attacking, scared }
+public enum AttackType {ground, air}
 public class CrowController : MonoBehaviour
 {
     private crowState state;
     private CropController target;
     private Transform targetPosition;
     private Vector3 movePosition;
+    private EnemySpawnController currentController;
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float fleespeed = 10f;
     [SerializeField] private float power = 1;
+    [SerializeField] private int braveness;
+    [SerializeField] private AnimationCurve fleeTime;
+    [SerializeField] private AttackType attackType;
+    private int _braveness;
     // Start is called before the first frame update
     void Start()
     {
         state = crowState.moving;
         targetPosition = target.transform;
+        _braveness = braveness;
     }
 
 
@@ -41,10 +48,28 @@ public class CrowController : MonoBehaviour
         }
     }
 
-    public void startCrow(CropController newtarget)
+    public void startCrow(CropController newtarget, EnemySpawnController controller)
     {
         target = newtarget;
         target.killed += killedPlant;
+        currentController = controller;
+    }
+
+    void GetNewTarget(CropController newtarget)
+    {
+        target = newtarget;
+        if (target != null)
+        {
+           
+            target.killed += killedPlant;
+            targetPosition = target.transform;
+            state = crowState.moving;
+        }
+        else
+        {
+            _braveness = 0;
+        }
+        
     }
 
     void moveCrow()
@@ -61,6 +86,7 @@ public class CrowController : MonoBehaviour
 
     void killedPlant()
     {
+        GetNewTarget(currentController.getNewTarget());
         ScareCrow(targetPosition.position);
     }
     
@@ -68,24 +94,45 @@ public class CrowController : MonoBehaviour
     {
         
         transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
-        if(transform.position == movePosition)
+        if(_braveness <= 0)
         {
-            
-            
-            Destroy(gameObject);
+            if (transform.position == movePosition)
+            {
+
+
+                Destroy(gameObject);
+            }
         }
+        
     }
 
     public void ScareCrow(Vector3 playerPosition)
     {
         var runawaydirection = playerPosition - transform.position;
         runawaydirection *= -1;
+       
         state = crowState.scared;
 
         target.killed -= killedPlant;
+        _braveness--;
+        if(_braveness > 0)
+        {
+            StartCoroutine(fleeForTime());
+        }
         
-        movePosition = transform.position + runawaydirection * 500;
+        movePosition = transform.position + (runawaydirection.normalized * 100);
     }
+
+    private IEnumerator fleeForTime()
+    {
+        float time = fleeTime.Evaluate(braveness);
+        yield return new WaitForSeconds(time);
+        GetNewTarget(currentController.getNewTarget());
+        
+
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
