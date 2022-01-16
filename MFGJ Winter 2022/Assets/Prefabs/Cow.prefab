@@ -180,30 +180,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9175a92758d1ef2499c644521f51df07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 8
   fleespeed: 4
   power: 0.2
-  braveness: 10
+  braveness: 5
   fleeTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 10
-      inSlope: -0.014261649
-      outSlope: -0.014261649
+      inSlope: -0.5035214
+      outSlope: -0.5035214
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.05870638
+      outWeight: 0.05047619
     - serializedVersion: 3
-      time: 50
+      time: 49.999977
       value: 1
-      inSlope: -0.378175
-      outSlope: -0.378175
+      inSlope: -0.027079681
+      outSlope: -0.027079681
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.037416384
+      inWeight: 0.05142817
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

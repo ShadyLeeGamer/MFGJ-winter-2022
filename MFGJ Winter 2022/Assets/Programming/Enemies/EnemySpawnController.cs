@@ -9,7 +9,9 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private int birdsPerWave = 5;
     [SerializeField] private int cowsPerWave = 1;
     private GameObject[] cropObjects;
+    private int enemiesAlive;
     
+
     private List<CropController> activeCrops = new List<CropController>();
     [SerializeField] private float spawnsPSec;
     float timer;
@@ -18,6 +20,12 @@ public class EnemySpawnController : MonoBehaviour
 
     int wave;
     int birdSpawnsThisWave, cowSpawnsThisWave;
+
+    [Header("waveBalancing")]
+    [SerializeField] AnimationCurve birdsAmountScaling;
+    [SerializeField] AnimationCurve cowAmountScaling;
+    [SerializeField] AnimationCurve spawnRateScaling;
+
     Vector2 borders;
 
     #region singleton
@@ -42,6 +50,7 @@ public class EnemySpawnController : MonoBehaviour
         inWave = true;
         birdSpawnsThisWave = birdsPerWave;
         cowSpawnsThisWave = cowsPerWave;
+        wave++;
     }
 
 
@@ -118,16 +127,28 @@ public class EnemySpawnController : MonoBehaviour
     void NextWave()
     {
         inWave = false;
-        birdSpawnsThisWave = birdsPerWave;
-        cowSpawnsThisWave = cowsPerWave;
+        
+        birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
+        cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
+        spawnsPSec = spawnRateScaling.Evaluate(wave);
         StartCoroutine(waveTimer());
     }
 
     private IEnumerator waveTimer()
     {
-        yield return new WaitForSeconds(30);
-        inWave = true;
-        Debug.Log("next wave");
+        while(enemiesAlive > 0)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(5);
+        if (AliveCheck.TestForAlive())
+        {
+            wave++;
+            inWave = true;
+            Debug.Log("next wave");
+            Debug.Log("wave " + wave);
+        }
+        
     }
 
     public void removePlant(CropController target)
@@ -142,12 +163,18 @@ public class EnemySpawnController : MonoBehaviour
 
     void SpawnBird(GameObject objectToSpawn)
     {
+        enemiesAlive++;
         var spawnPisition = CalculateSpawnPosition();
         int target = Random.Range(0, activeCrops.Count);
         var bird = Instantiate(objectToSpawn, spawnPisition, Quaternion.Euler(Vector3.zero));
         bird.GetComponent<CrowController>().startCrow(activeCrops[target], this);
     }
 
+
+    public void RemoveEnemy()
+    {
+        enemiesAlive--;
+    }
 
     public CropController getNewTarget()
     {

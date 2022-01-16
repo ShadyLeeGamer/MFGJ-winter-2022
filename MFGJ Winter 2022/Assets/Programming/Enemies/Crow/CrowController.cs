@@ -98,7 +98,7 @@ public class CrowController : MonoBehaviour
         {
             if (transform.position == movePosition)
             {
-
+                currentController.RemoveEnemy();
 
                 Destroy(gameObject);
             }
@@ -120,7 +120,7 @@ public class CrowController : MonoBehaviour
             StartCoroutine(fleeForTime());
         }
         
-        movePosition = transform.position + (runawaydirection.normalized * 100);
+        movePosition = transform.position + (runawaydirection.normalized * 20);
     }
 
     private IEnumerator fleeForTime()

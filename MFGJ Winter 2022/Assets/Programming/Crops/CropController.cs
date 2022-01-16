@@ -25,6 +25,7 @@ public class CropController : MonoBehaviour
         SR = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
+    
 
     public void Update()
     {
