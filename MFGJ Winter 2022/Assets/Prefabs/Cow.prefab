@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7987029315742083827}
   - component: {fileID: 6601713218152064581}
   m_Layer: 0
-  m_Name: Bird
+  m_Name: Cow
   m_TagString: Crow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,35 +180,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9175a92758d1ef2499c644521f51df07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  fleespeed: 10
-  power: 1
-  braveness: 3
+  moveSpeed: 2
+  fleespeed: 4
+  power: 0.2
+  braveness: 10
   fleeTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 5
-      inSlope: -0.013800128
-      outSlope: -0.013800128
+      value: 10
+      inSlope: -0.014261649
+      outSlope: -0.014261649
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.08728442
+      outWeight: 0.05870638
     - serializedVersion: 3
       time: 50
       value: 1
-      inSlope: -0.27944797
-      outSlope: -0.27944797
+      inSlope: -0.378175
+      outSlope: -0.378175
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.024125824
+      inWeight: 0.037416384
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  attackType: 1
+  attackType: 0
 --- !u!58 &6601713218152064581
 CircleCollider2D:
   m_ObjectHideFlags: 0
