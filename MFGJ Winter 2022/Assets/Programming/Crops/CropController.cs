@@ -7,6 +7,7 @@ public class CropController : MonoBehaviour
     [SerializeField] float health;
     [SerializeField] float regenPSec;
     [SerializeField] float AutoHealDelay;
+    [SerializeField] LifeSpites[] lifeSprites; 
     public bool alive = true;
     float _health;
     float healthStore;
@@ -16,6 +17,7 @@ public class CropController : MonoBehaviour
     public event killCrop killed;
     [SerializeField] Gradient healthcolors;
     SpriteRenderer SR;
+    int index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +51,7 @@ public class CropController : MonoBehaviour
                 else
                 {
                     _health += regenPSec * Time.deltaTime;
-                    SR.color = healthcolors.Evaluate(_health / health);
+                    updateHealth();
                     if (_health > health)
                     {
                         _health = health;
@@ -66,8 +68,8 @@ public class CropController : MonoBehaviour
     {
         _health -= damage * Time.deltaTime;
         attacked = true;
-        SR.color = healthcolors.Evaluate(_health / health);
-        if(_health < 0)
+        updateHealth();
+        if (_health < 0)
         {
             alive = false;
             
@@ -76,4 +78,44 @@ public class CropController : MonoBehaviour
         }
         
     }
+
+    void updateHealth()
+    {
+        //SR.color = healthcolors.Evaluate(_health / health);
+        float currentPercentage = (_health/health);
+        Debug.Log(_health);
+        Debug.Log(currentPercentage);
+        if(index < lifeSprites.Length + 1)
+        {
+            if ((lifeSprites[index + 1].percentage) > currentPercentage)
+            {
+                index++;
+                if (index >= lifeSprites.Length)
+                {
+                    index--;
+                }
+            }
+            else
+            {
+                if (index > 0)
+                {
+                    if (lifeSprites[index - 1].percentage < currentPercentage)
+                    {
+                        index--;
+                    }
+                }
+
+            }
+        }
+        
+        SR.sprite = lifeSprites[index].sprite;
+    }
+}
+
+
+[System.Serializable]
+public class LifeSpites
+{
+    public Sprite sprite;
+    public float percentage;
 }
