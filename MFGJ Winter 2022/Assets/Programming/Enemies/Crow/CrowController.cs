@@ -20,12 +20,18 @@ public class CrowController : MonoBehaviour
     [SerializeField] private AnimationCurve fleeTime;
     [SerializeField] private AttackType attackType;
     private int _braveness;
+    private Animator anim;
+    Vector2 targetDir;
     // Start is called before the first frame update
     void Start()
     {
         state = crowState.moving;
         targetPosition = target.transform;
         _braveness = braveness;
+        if(attackType == AttackType.air)
+        {
+            anim = gameObject.GetComponentInChildren<Animator>();
+        } 
     }
 
 

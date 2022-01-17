@@ -313,7 +313,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: L_Peck_
+      name: R_Peck_4
       rect:
         serializedVersion: 2
         x: 80
@@ -334,7 +334,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: R_Peck_2
+      name: R_Peck_3
       rect:
         serializedVersion: 2
         x: 96
@@ -355,7 +355,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: R_Peck_3
+      name: R_Peck_2
       rect:
         serializedVersion: 2
         x: 112
@@ -376,7 +376,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: R_Peck_4
+      name: R_Peck_1
       rect:
         serializedVersion: 2
         x: 128
