@@ -8,6 +8,7 @@ public class PlayerMoveController : MonoBehaviour
     [SerializeField]private float moveSpeed = 5f;
     Vector2 moveInput;
     private Animator anim;
+    private SpriteRenderer SR;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class PlayerMoveController : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         AliveCheck.changeAliveState(true);
         anim = GetComponentInChildren<Animator>();
+        SR = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,9 @@ public class PlayerMoveController : MonoBehaviour
         moveInput *= moveSpeed * Time.fixedDeltaTime;
         
         RB.MovePosition((Vector2)transform.position + moveInput);
-        
+        SR.sortingOrder = Mathf.CeilToInt(transform.position.y * 100) * -1;
+
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

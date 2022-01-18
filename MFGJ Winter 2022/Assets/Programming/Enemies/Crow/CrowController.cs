@@ -22,16 +22,21 @@ public class CrowController : MonoBehaviour
     private int _braveness;
     private Animator anim;
     Vector2 targetDir;
+
+
+    [SerializeField] float testX, testY;
+    [SerializeField] bool TestAnim;
+
+
     // Start is called before the first frame update
     void Start()
     {
         state = crowState.moving;
         targetPosition = target.transform;
         _braveness = braveness;
-        if(attackType == AttackType.air)
-        {
-            anim = gameObject.GetComponentInChildren<Animator>();
-        } 
+        
+        anim = gameObject.GetComponentInChildren<Animator>();
+        
     }
 
 
@@ -51,6 +56,11 @@ public class CrowController : MonoBehaviour
             case crowState.scared:
                 scaredCrow();
                 break;
+        }
+        if (TestAnim)
+        {
+            updateAnimator(new Vector3(testX, testY), true);
+            TestAnim = false;
         }
     }
 
@@ -82,6 +92,7 @@ public class CrowController : MonoBehaviour
     {
         movePosition = targetPosition.position;
         transform.position = Vector3.MoveTowards(transform.position, movePosition, moveSpeed * Time.deltaTime);
+        updateAnimator((movePosition - transform.position).normalized, false);
     }
 
     void attackCrop()
@@ -100,9 +111,10 @@ public class CrowController : MonoBehaviour
     {
         
         transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
-        if(_braveness <= 0)
+        updateAnimator((movePosition - transform.position).normalized, false);
+        if (_braveness <= 0)
         {
-            if (transform.position == movePosition)
+            if (transform.position == movePosition || !GetComponentInChildren<Renderer>().isVisible) 
             {
                 currentController.RemoveEnemy();
 
@@ -139,7 +151,42 @@ public class CrowController : MonoBehaviour
     }
 
 
+    private void updateAnimator(Vector3 angle, bool attacking)
+    {
+        
+            anim.SetBool("Attacking", attacking);
 
+            var x = Mathf.Abs(angle.x);
+            var y = Mathf.Abs(angle.y);
+
+
+            if (attacking)
+            {
+                anim.SetFloat("X", angle.x);
+                anim.SetFloat("Y", 0f);
+            }
+            else
+            {
+                if (x >= y)
+                {
+                    anim.SetFloat("X", angle.x);
+                    anim.SetFloat("Y", 0f);
+                }
+                else
+                {
+                    if (x < y)
+                    {
+                        anim.SetFloat("Y", angle.y);
+                        anim.SetFloat("X", 0f);
+                    }
+                }
+
+            
+        }        
+
+    }
+
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Crop"))
@@ -147,6 +194,7 @@ public class CrowController : MonoBehaviour
             if(collision.GetComponent<CropController>() == target)
             {
                 state = crowState.attacking;
+                updateAnimator((movePosition - transform.position).normalized, true);
             }
         }
     }

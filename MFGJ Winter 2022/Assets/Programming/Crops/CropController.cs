@@ -25,6 +25,7 @@ public class CropController : MonoBehaviour
         _health = health;
         alive = true;
         SR = gameObject.GetComponentInChildren<SpriteRenderer>();
+        SR.sortingOrder = Mathf.CeilToInt(transform.position.y * 100) * -1;
     }
 
     
@@ -69,6 +70,7 @@ public class CropController : MonoBehaviour
         _health -= damage * Time.deltaTime;
         attacked = true;
         updateHealth();
+        
         if (_health < 0)
         {
             alive = false;
@@ -83,8 +85,7 @@ public class CropController : MonoBehaviour
     {
         //SR.color = healthcolors.Evaluate(_health / health);
         float currentPercentage = (_health/health);
-        Debug.Log(_health);
-        Debug.Log(currentPercentage);
+        
         if(index < lifeSprites.Length + 1)
         {
             if ((lifeSprites[index + 1].percentage) > currentPercentage)
