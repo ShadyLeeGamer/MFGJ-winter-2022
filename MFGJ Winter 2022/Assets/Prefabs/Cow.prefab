@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9175a92758d1ef2499c644521f51df07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   moveSpeed: 8
   fleespeed: 4
   power: 0.2
@@ -229,6 +230,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   attackType: 0
+  layers:
+    serializedVersion: 2
+    m_Bits: 190
   testX: 0
   testY: 0
   TestAnim: 0
