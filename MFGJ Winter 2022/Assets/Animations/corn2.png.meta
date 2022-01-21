@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: a92ded332cea9564e871833fd7f151a8
+guid: e3454527e95780049810d7cf5c33b4fb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7327142228798594367
-    second: scarecrow death animation_0
+      213: -7541467185698544320
+    second: corn2_0
   - first:
-      213: -8663833359589194607
-    second: scarecrow death animation_1
+      213: -7240107862214784531
+    second: corn2_1
   - first:
-      213: 8166924763665560042
-    second: scarecrow death animation_2
+      213: 2604783709193062530
+    second: corn2_2
   - first:
-      213: 153009326506469519
-    second: scarecrow death animation_3
-  - first:
-      213: 3752329871160365472
-    second: scarecrow death animation_4
-  - first:
-      213: 6175133839337885663
-    second: scarecrow death animation_5
-  - first:
-      213: 7560022404589531016
-    second: scarecrow death animation_6
-  - first:
-      213: 698808245847968845
-    second: scarecrow death animation_7
+      213: -1900995184562001977
+    second: corn2_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,169 +103,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scarecrow death animation_0
+      name: corn2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 38
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c222b9b6f2c05a90800000000000000
-      internalID: -7327142228798594367
+      spriteID: 0456c2f0d83575790800000000000000
+      internalID: -7541467185698544320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: scarecrow death animation_1
+      name: corn2_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 38
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 194c1806671e3c780800000000000000
-      internalID: -8663833359589194607
+      spriteID: de9cc215248f58b90800000000000000
+      internalID: -7240107862214784531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: scarecrow death animation_2
+      name: corn2_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
-        height: 38
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae170a56dceb65170800000000000000
-      internalID: 8166924763665560042
+      spriteID: 2884d279bfc062420800000000000000
+      internalID: 2604783709193062530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: scarecrow death animation_3
+      name: corn2_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
-        height: 38
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f886db9fb299f1200800000000000000
-      internalID: 153009326506469519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scarecrow death animation_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a1d99a1324f21430800000000000000
-      internalID: 3752329871160365472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scarecrow death animation_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdf8a36728b72b550800000000000000
-      internalID: 6175133839337885663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scarecrow death animation_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88fad8f72589ae860800000000000000
-      internalID: 7560022404589531016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: scarecrow death animation_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4cc1eba56aa2b900800000000000000
-      internalID: 698808245847968845
+      spriteID: 7c7247893fe4e95e0800000000000000
+      internalID: -1900995184562001977
       vertices: []
       indices: 
       edges: []
