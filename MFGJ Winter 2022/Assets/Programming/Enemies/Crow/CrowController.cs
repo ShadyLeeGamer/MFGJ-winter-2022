@@ -198,7 +198,7 @@ public class CrowController : MonoBehaviour
                                 {
                                     obstacleAvoidanceList.Add(corners[playerIndex]);
                                     playerIndex++;
-                                    if (playerIndex > corners.Length)
+                                    if (playerIndex >= corners.Length)
                                         playerIndex = 0;
                                     obstacleAvoidanceList.Add(corners[playerIndex]);
                                 }

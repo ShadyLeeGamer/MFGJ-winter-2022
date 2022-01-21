@@ -136,11 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7792568537652034418, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.69
+      value: 6.4400005
       objectReference: {fileID: 0}
     - target: {fileID: 7792568537652034418, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.31
+      value: -4.31
       objectReference: {fileID: 0}
     - target: {fileID: 7792568537652034418, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -269,7 +269,8 @@ GameObject:
   m_Component:
   - component: {fileID: 42209435}
   - component: {fileID: 42209434}
-  m_Layer: 0
+  - component: {fileID: 42209436}
+  m_Layer: 7
   m_Name: farmtileset_44 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,8 +314,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -3955901875520489589, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -335,12 +336,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42209433}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.173582, y: -24.155077, z: 0}
+  m_LocalPosition: {x: 12.38, y: -12.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &42209436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42209433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!4 &51635252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7792568537652034418, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
@@ -356,6 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61747076}
   - component: {fileID: 61747075}
+  - component: {fileID: 61747077}
   m_Layer: 0
   m_Name: level walls HUGE wide (2)
   m_TagString: Untagged
@@ -400,8 +416,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 83526204b554d7c4bb1323709d7d7b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -428,6 +444,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61747077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61747074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 2.8}
 --- !u!4 &103202578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7792568537652034418, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
@@ -443,8 +473,9 @@ GameObject:
   m_Component:
   - component: {fileID: 107644030}
   - component: {fileID: 107644029}
+  - component: {fileID: 107644032}
   - component: {fileID: 107644031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_43 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,8 +519,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6502219146109323312, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -510,7 +541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107644028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.7935821, y: 11.975077, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -542,6 +573,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &107644032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107644028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!4 &144048931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7792568537652034418, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
@@ -557,8 +602,9 @@ GameObject:
   m_Component:
   - component: {fileID: 164208184}
   - component: {fileID: 164208183}
+  - component: {fileID: 164208186}
   - component: {fileID: 164208185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_103
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,8 +648,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2846544872464846484, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -624,7 +670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164208182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.178045, y: -21.105705, z: 0}
+  m_LocalPosition: {x: 4.384463, y: -9.130629, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -656,6 +702,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &164208186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164208182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &211989807
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +903,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 12.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -910,7 +970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284737903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7935821, y: -11.975077, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1674326312}
@@ -928,6 +988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 295598451}
   - component: {fileID: 295598450}
+  - component: {fileID: 295598452}
   m_Layer: 0
   m_Name: level walls HUGe Tall (3)
   m_TagString: Untagged
@@ -972,8 +1033,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: aecfa12ee1a6ca24dbc7932e404510e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1000,6 +1061,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &295598452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295598449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &366507327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 366507329}
   - component: {fileID: 366507328}
+  - component: {fileID: 366507330}
   m_Layer: 0
   m_Name: level walls HUGe Tall (4)
   m_TagString: Untagged
@@ -1054,8 +1130,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aecfa12ee1a6ca24dbc7932e404510e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1082,6 +1158,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366507330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366507327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &371371528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,8 +1182,9 @@ GameObject:
   m_Component:
   - component: {fileID: 371371530}
   - component: {fileID: 371371529}
+  - component: {fileID: 371371532}
   - component: {fileID: 371371531}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_102 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,8 +1228,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 6475504856984768727, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1159,7 +1250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371371528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.235521, y: -18.253216, z: 0}
+  m_LocalPosition: {x: 14.441939, y: -6.278139, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -1191,6 +1282,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &371371532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371371528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &377617830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,8 +1457,9 @@ GameObject:
   m_Component:
   - component: {fileID: 483258221}
   - component: {fileID: 483258220}
+  - component: {fileID: 483258223}
   - component: {fileID: 483258222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_69 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1397,8 +1503,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -5636311086611574120, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1419,7 +1525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483258219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.733726, y: -6.356416, z: 0}
+  m_LocalPosition: {x: 13.940144, y: 5.6186604, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -1451,6 +1557,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66577375, y: 0.46676874}
   m_EdgeRadius: 0
+--- !u!114 &483258223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483258219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -1.51}
 --- !u!1 &486086361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,6 +1581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 486086363}
   - component: {fileID: 486086362}
+  - component: {fileID: 486086364}
   m_Layer: 0
   m_Name: level walls HUGe Tall (5)
   m_TagString: Untagged
@@ -1505,8 +1626,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aecfa12ee1a6ca24dbc7932e404510e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1533,6 +1654,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486086364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486086361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &508438802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1678,8 @@ GameObject:
   m_Component:
   - component: {fileID: 508438804}
   - component: {fileID: 508438803}
-  m_Layer: 0
+  - component: {fileID: 508438805}
+  m_Layer: 7
   m_Name: farmtileset_66 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,8 +1723,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 6336470479658883990, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1609,12 +1745,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508438802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.267738, y: -22.593632, z: 0}
+  m_LocalPosition: {x: 6.474156, y: -10.618555, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &508438805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508438802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &687446776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,8 +1775,9 @@ GameObject:
   m_Component:
   - component: {fileID: 687446778}
   - component: {fileID: 687446777}
+  - component: {fileID: 687446780}
   - component: {fileID: 687446779}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_44
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,8 +1821,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -3955901875520489589, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1692,7 +1843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687446776}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.156418, y: -4.5350766, z: 0}
+  m_LocalPosition: {x: -5.95, y: 7.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -1724,6 +1875,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &687446780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687446776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &697803782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,7 +1899,9 @@ GameObject:
   m_Component:
   - component: {fileID: 697803784}
   - component: {fileID: 697803783}
-  m_Layer: 0
+  - component: {fileID: 697803786}
+  - component: {fileID: 697803785}
+  m_Layer: 7
   m_Name: farmtileset_69 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1778,8 +1945,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: -5636311086611574120, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1800,12 +1967,52 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697803782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.587979, y: 3.4067974, z: 0}
+  m_LocalPosition: {x: -11.381561, y: 15.381874, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &697803785
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697803782}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.6478672}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 4}
+    newSize: {x: 2, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7084296, y: 0.7042656}
+  m_EdgeRadius: 0
+--- !u!114 &697803786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697803782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -1.32}
 --- !u!1 &698159736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,8 +2023,9 @@ GameObject:
   m_Component:
   - component: {fileID: 698159738}
   - component: {fileID: 698159737}
+  - component: {fileID: 698159740}
   - component: {fileID: 698159739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_103 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,8 +2069,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2846544872464846484, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1883,7 +2091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698159736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.988102, y: -6.7469244, z: 0}
+  m_LocalPosition: {x: 11.19452, y: 5.2281523, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -1915,6 +2123,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &698159740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698159736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &795489844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +2147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 795489846}
   - component: {fileID: 795489845}
+  - component: {fileID: 795489847}
   m_Layer: 0
   m_Name: level walls HUGe Tall (1)
   m_TagString: Untagged
@@ -1969,8 +2192,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aecfa12ee1a6ca24dbc7932e404510e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1997,6 +2220,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795489847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795489844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1001 &811473981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2068,7 +2305,8 @@ GameObject:
   m_Component:
   - component: {fileID: 885148546}
   - component: {fileID: 885148545}
-  m_Layer: 0
+  - component: {fileID: 885148547}
+  m_Layer: 7
   m_Name: farmtileset_103 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2112,8 +2350,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2846544872464846484, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2134,12 +2372,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885148544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.237812, y: -24.467413, z: 0}
+  m_LocalPosition: {x: 15.44423, y: -12.492336, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &885148547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885148544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &889847490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,6 +2402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 889847492}
   - component: {fileID: 889847491}
+  - component: {fileID: 889847493}
   m_Layer: 0
   m_Name: level walls HUGE wide (5)
   m_TagString: Untagged
@@ -2194,8 +2447,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 83526204b554d7c4bb1323709d7d7b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2222,6 +2475,77 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &889847493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889847490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -2}
+--- !u!1 &911103383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911103384}
+  - component: {fileID: 911103385}
+  m_Layer: 7
+  m_Name: enemy wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &911103384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911103383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.12, y: -1.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1016435794}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &911103385
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911103383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.9756446, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.173823, y: 8.62}
+  m_EdgeRadius: 0
 --- !u!1 &916799509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,8 +2556,9 @@ GameObject:
   m_Component:
   - component: {fileID: 916799511}
   - component: {fileID: 916799510}
+  - component: {fileID: 916799513}
   - component: {fileID: 916799512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_102
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2277,8 +2602,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 6475504856984768727, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2299,7 +2624,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916799509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.988305, y: -7.185796, z: 0}
+  m_LocalPosition: {x: -11.781887, y: 4.789281, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -2331,6 +2656,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &916799513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916799509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &944129992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,8 +2680,9 @@ GameObject:
   m_Component:
   - component: {fileID: 944129994}
   - component: {fileID: 944129993}
+  - component: {fileID: 944129996}
   - component: {fileID: 944129995}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_103 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2386,8 +2726,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2846544872464846484, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2408,7 +2748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944129992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.450224, y: 2.361576, z: 0}
+  m_LocalPosition: {x: 1.6566418, y: 14.336653, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -2440,6 +2780,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &944129996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944129992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &966898084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,8 +2804,9 @@ GameObject:
   m_Component:
   - component: {fileID: 966898086}
   - component: {fileID: 966898085}
+  - component: {fileID: 966898088}
   - component: {fileID: 966898087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_69
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2495,8 +2850,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: -5636311086611574120, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2517,7 +2872,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966898084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08641791, y: -2.8350763, z: 0}
+  m_LocalPosition: {x: -0.88, y: 9.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -2549,6 +2904,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6889367, y: 0.5161848}
   m_EdgeRadius: 0
+--- !u!114 &966898088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966898084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -1.46}
 --- !u!1001 &983726516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2717,7 +3086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016435793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7935821, y: 11.975077, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 284737905}
@@ -2743,6 +3112,7 @@ Transform:
   - {fileID: 42209435}
   - {fileID: 2079890854}
   - {fileID: 107644030}
+  - {fileID: 911103384}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2756,6 +3126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1027572564}
   - component: {fileID: 1027572563}
+  - component: {fileID: 1027572565}
   m_Layer: 0
   m_Name: level walls HUGE wide
   m_TagString: Untagged
@@ -2800,8 +3171,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 83526204b554d7c4bb1323709d7d7b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2828,6 +3199,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1027572565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027572562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 2.8}
 --- !u!1 &1035832702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,6 +3223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1035832704}
   - component: {fileID: 1035832703}
+  - component: {fileID: 1035832705}
   m_Layer: 0
   m_Name: level walls HUGE wide (4)
   m_TagString: Untagged
@@ -2882,8 +3268,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 83526204b554d7c4bb1323709d7d7b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2910,6 +3296,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035832705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035832702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -2}
 --- !u!1001 &1055701143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2986,8 +3386,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1116726154}
   - component: {fileID: 1116726153}
+  - component: {fileID: 1116726156}
   - component: {fileID: 1116726155}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_43
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3031,8 +3432,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6502219146109323312, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3053,7 +3454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116726152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.214496, y: -12.256112, z: 0}
+  m_LocalPosition: {x: -12.008078, y: -0.28103542, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -3085,6 +3486,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1116726156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116726152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1001 &1119555340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3231,7 +3646,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1166285637}
   - component: {fileID: 1166285636}
-  m_Layer: 0
+  - component: {fileID: 1166285638}
+  m_Layer: 7
   m_Name: farmtileset_66
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3275,8 +3691,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 6336470479658883990, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3297,12 +3713,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166285635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3520103, y: -21.967117, z: 0}
+  m_LocalPosition: {x: 2.5584283, y: -9.992041, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1166285638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166285635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &1227336269
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,7 +3743,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1227336271}
   - component: {fileID: 1227336270}
-  m_Layer: 0
+  - component: {fileID: 1227336272}
+  m_Layer: 7
   m_Name: farmtileset_44 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3357,8 +3788,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -3955901875520489589, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3379,12 +3810,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227336269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.211627, y: -24.159924, z: 0}
+  m_LocalPosition: {x: 13.418045, y: -12.184847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1227336272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227336269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &1255402184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3470,6 +3915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1333362199}
   - component: {fileID: 1333362198}
+  - component: {fileID: 1333362200}
   m_Layer: 0
   m_Name: level walls HUGe Tall
   m_TagString: Untagged
@@ -3514,8 +3960,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aecfa12ee1a6ca24dbc7932e404510e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3542,6 +3988,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333362200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333362197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &1373543629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3552,6 +4012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1373543631}
   - component: {fileID: 1373543630}
+  - component: {fileID: 1373543632}
   m_Layer: 0
   m_Name: level walls HUGE wide (1)
   m_TagString: Untagged
@@ -3596,8 +4057,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 83526204b554d7c4bb1323709d7d7b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3624,6 +4085,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1373543632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373543629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &1416979976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,6 +4109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1416979978}
   - component: {fileID: 1416979977}
+  - component: {fileID: 1416979979}
   m_Layer: 0
   m_Name: level walls HUGE wide (3)
   m_TagString: Untagged
@@ -3678,8 +4154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 83526204b554d7c4bb1323709d7d7b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3706,6 +4182,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1416979979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416979976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 2.8}
 --- !u!1001 &1454535955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3777,8 +4267,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1488975471}
   - component: {fileID: 1488975470}
+  - component: {fileID: 1488975473}
   - component: {fileID: 1488975472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_102 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3822,8 +4313,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 6475504856984768727, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3844,7 +4335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488975469}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.710376, y: -20.50398, z: 0}
+  m_LocalPosition: {x: -12.503958, y: -8.528904, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -3876,6 +4367,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1488975473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488975469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &1516126482
 GameObject:
   m_ObjectHideFlags: 0
@@ -4158,6 +4663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1567427181}
   - component: {fileID: 1567427180}
+  - component: {fileID: 1567427182}
   m_Layer: 0
   m_Name: level walls HUGE wide (7)
   m_TagString: Untagged
@@ -4202,8 +4708,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 83526204b554d7c4bb1323709d7d7b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4230,6 +4736,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567427182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567427179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!4 &1574770111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7792568537652034418, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
@@ -14095,6 +14615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1684634027}
   - component: {fileID: 1684634026}
+  - component: {fileID: 1684634028}
   m_Layer: 0
   m_Name: level walls HUGe Tall (2)
   m_TagString: Untagged
@@ -14139,8 +14660,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aecfa12ee1a6ca24dbc7932e404510e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14167,6 +14688,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1684634028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684634025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &1688627216
 GameObject:
   m_ObjectHideFlags: 0
@@ -14215,8 +14750,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1700078063}
   - component: {fileID: 1700078062}
+  - component: {fileID: 1700078065}
   - component: {fileID: 1700078064}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_66 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14260,8 +14796,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 6336470479658883990, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14282,7 +14818,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700078061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8288813, y: -9.22795, z: 0}
+  m_LocalPosition: {x: -7.622463, y: 2.7471266, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -14314,6 +14850,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7000088, y: 0.6921239}
   m_EdgeRadius: 0
+--- !u!114 &1700078065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700078061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -1.3}
 --- !u!4 &1702095991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7792568537652034418, guid: 50d6971ad9c59d444bb743bbd14075e1, type: 3}
@@ -14479,8 +15029,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1804145669}
   - component: {fileID: 1804145668}
+  - component: {fileID: 1804145671}
   - component: {fileID: 1804145670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14524,8 +15075,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3809352006322644759, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14546,7 +15097,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804145667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.827845, y: -18.25754, z: 0}
+  m_LocalPosition: {x: -11.621427, y: -6.282463, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -14578,6 +15129,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.368931, y: 2.2546234}
   m_EdgeRadius: 0
+--- !u!114 &1804145671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804145667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -0.52}
 --- !u!1 &1834609648
 GameObject:
   m_ObjectHideFlags: 0
@@ -14664,9 +15229,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -291149553
+  m_SortingLayer: -1
+  m_SortingOrder: -18
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -15097,6 +15662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1865209272}
   - component: {fileID: 1865209271}
+  - component: {fileID: 1865209273}
   m_Layer: 0
   m_Name: level walls HUGe Tall (6)
   m_TagString: Untagged
@@ -15141,8 +15707,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: aecfa12ee1a6ca24dbc7932e404510e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15169,6 +15735,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865209273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865209270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
 --- !u!1001 &1878295104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15293,8 +15873,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1923039115}
   - component: {fileID: 1923039114}
+  - component: {fileID: 1923039117}
   - component: {fileID: 1923039116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: farmtileset_barn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15338,8 +15919,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 4874275857306156293, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15360,7 +15941,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923039113}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2164183, y: -0.5350771, z: 0}
+  m_LocalPosition: {x: -4.01, y: 11.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
@@ -15379,7 +15960,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.7944689}
+  m_Offset: {x: 0, y: -2.4085774}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15390,8 +15971,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.25, y: 3.8485622}
+  m_Size: {x: 6.25, y: 2.620345}
   m_EdgeRadius: 0
+--- !u!114 &1923039117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923039113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -1.07}
 --- !u!1 &1933150107
 GameObject:
   m_ObjectHideFlags: 0
@@ -15730,8 +16325,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038689737}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7935821, y: 11.975077, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1333362199}
@@ -15866,6 +16461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2079682753}
   - component: {fileID: 2079682752}
+  - component: {fileID: 2079682754}
   m_Layer: 0
   m_Name: level walls HUGE wide (6)
   m_TagString: Untagged
@@ -15910,8 +16506,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 83526204b554d7c4bb1323709d7d7b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15938,6 +16534,20 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079682754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079682751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: -2}
 --- !u!1 &2079890852
 GameObject:
   m_ObjectHideFlags: 0
@@ -15948,7 +16558,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2079890854}
   - component: {fileID: 2079890853}
-  m_Layer: 0
+  - component: {fileID: 2079890855}
+  m_Layer: 7
   m_Name: farmtileset_44 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15992,8 +16603,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -785753953
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -3955901875520489589, guid: 0bbe23f4f3adc934eb97cc63c9097429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16014,9 +16625,23 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079890852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.637572, y: -23.50722, z: 0}
+  m_LocalPosition: {x: 12.84399, y: -11.532143, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016435794}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079890855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079890852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e058a05eaa87944945bc889cad7e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves: 0
+  offset: {x: 0, y: 0}
