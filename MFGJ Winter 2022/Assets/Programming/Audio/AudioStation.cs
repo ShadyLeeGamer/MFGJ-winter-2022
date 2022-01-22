@@ -23,23 +23,25 @@ public class AudioStation : MonoBehaviour
         //objectPooler = ObjectPooler.Instance;
     }
 
-    public void StartNewRandomSFXPlayer(AudioClip[] clips, Vector3 pos = default,
+    public void StartNewRandomSFXPlayer(AudioClip[] clips, Vector3 pos = default, Transform parent = null,
                                         float pitchMin = 1, float pitchMax = 1, bool is2D = false)
     {
         //AudioPlayer newAudioPlayer = objectPooler.GetAudioPlayer(pos, Quaternion.identity, default);
-        AudioPlayer newAudioPlayer = Instantiate(audioPlayerPrefab, pos, Quaternion.identity);
-        newAudioPlayer.transform.SetParent(transform);
-        audioPlayers.Add(newAudioPlayer);
-        newAudioPlayer.SetupSFX(clips, pitchMin, pitchMax, is2D);
-        newAudioPlayer.Play();
+        AudioPlayer sfxAudioPlayer = Instantiate(audioPlayerPrefab, pos, Quaternion.identity);
+        sfxAudioPlayer.transform.SetParent(parent ? parent : transform);
+        audioPlayers.Add(sfxAudioPlayer);
+        sfxAudioPlayer.SetupSFX(clips, pitchMin, pitchMax, is2D);
+        sfxAudioPlayer.Play();
     }
 
-    public void StartNewSFXPlayer(AudioClip clip, Vector3 pos = default,
+    public void StartNewSFXPlayer(AudioClip clip, Vector3 pos = default, Transform parent = null,
                                   float pitchMin = 1, float pitchMax = 1, bool is2D = false)
     {
         //AudioPlayer newAudioPlayer = objectPooler.GetAudioPlayer(pos, Quaternion.identity, default);
+        if (parent)
+            pos = parent.position;
         AudioPlayer sfxAudioPlayer = Instantiate(audioPlayerPrefab, pos, Quaternion.identity);
-        sfxAudioPlayer.transform.SetParent(transform);
+        sfxAudioPlayer.transform.SetParent(parent ? parent : transform);
         audioPlayers.Add(sfxAudioPlayer);
         sfxAudioPlayer.SetupSFX(clip, pitchMin, pitchMax, is2D);
         sfxAudioPlayer.Play();
@@ -73,10 +75,10 @@ public class AudioStation : MonoBehaviour
             }
     }
 
-    public void ToggleAllPlayerPause(int type)
+    public void SetAllPlayerPause(bool isPaused)
     {
         for (int i = 0; i < audioPlayers.Count; i++)
-            if (type == 0)
+            if (isPaused)
                 audioPlayers[i].AudioSource.Pause();
             else
                 audioPlayers[i].AudioSource.UnPause();

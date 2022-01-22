@@ -27,6 +27,9 @@ public class CrowController : MonoBehaviour
     [SerializeField] float testX, testY;
     [SerializeField] bool TestAnim;
 
+    [SerializeField] AudioClip[] spawnSFX, scaredSFX;
+    AudioStation audioStation;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +39,8 @@ public class CrowController : MonoBehaviour
         _braveness = braveness;
         
         anim = gameObject.GetComponentInChildren<Animator>();
-        
+
     }
-
-
-
 
     // Update is called once per frame
     void Update()
@@ -69,6 +69,9 @@ public class CrowController : MonoBehaviour
         target = newtarget;
         target.killed += killedPlant;
         currentController = controller;
+
+        audioStation = AudioStation.Instance;
+        audioStation.StartNewRandomSFXPlayer(spawnSFX, default, null, 1, 1, true);
     }
 
     void GetNewTarget(CropController newtarget)
@@ -109,7 +112,6 @@ public class CrowController : MonoBehaviour
     
     void scaredCrow()
     {
-        
         transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
         updateAnimator((movePosition - transform.position).normalized, false);
         if (_braveness <= 0)
@@ -128,7 +130,9 @@ public class CrowController : MonoBehaviour
     {
         var runawaydirection = playerPosition - transform.position;
         runawaydirection *= -1;
-       
+
+        audioStation.StartNewRandomSFXPlayer(scaredSFX, transform.position, transform, 1, 1);
+
         state = crowState.scared;
 
         target.killed -= killedPlant;

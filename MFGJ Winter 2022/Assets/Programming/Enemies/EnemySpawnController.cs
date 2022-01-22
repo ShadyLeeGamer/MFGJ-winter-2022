@@ -30,7 +30,7 @@ public class EnemySpawnController : MonoBehaviour
 
     [SerializeField]
     AudioClip gameTrack, gameOverTrack;
-    public AudioStation audioStation;
+    AudioStation audioStation;
 
     #region singleton
     public static EnemySpawnController s;

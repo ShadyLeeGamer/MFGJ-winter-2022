@@ -232,6 +232,12 @@ MonoBehaviour:
   testX: 0
   testY: 0
   TestAnim: 0
+  spawnSFX:
+  - {fileID: 8300000, guid: 2b692f8dc4cbe1948a64d7b3976c8ec5, type: 3}
+  scaredSFX:
+  - {fileID: 8300000, guid: 894b1e255fdf5f04880a78222c896810, type: 3}
+  - {fileID: 8300000, guid: c4140587f10181145b8d1f923ac5ca53, type: 3}
+  - {fileID: 8300000, guid: a298f425da14e324281a8f383a01fce0, type: 3}
 --- !u!58 &6601713218152064581
 CircleCollider2D:
   m_ObjectHideFlags: 0

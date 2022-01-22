@@ -5,7 +5,7 @@ public class AudioMixerManager : MonoBehaviour
 {
     [SerializeField] AudioMixer mixer;
     [SerializeField] string[] volumeParameter;
-    [SerializeField, Range(-80, 0)] float[] defaultVolume = { 0f, -20, -20f };
+    [SerializeField, Range(-80, 0)] float[] defaultVolume;
 
     public static AudioMixerManager Instance { get; set; }
 
