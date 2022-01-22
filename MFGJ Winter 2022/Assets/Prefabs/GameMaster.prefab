@@ -120,3 +120,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  gameTrack: {fileID: 8300000, guid: e1a4783bfa1ff0e4d8318a449c4c460d, type: 3}
+  gameOverTrack: {fileID: 8300000, guid: 202672669d27cf84f8c7303f5730d53b, type: 3}
