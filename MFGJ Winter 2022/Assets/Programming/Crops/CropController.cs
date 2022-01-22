@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CropController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class CropController : MonoBehaviour
     public event killCrop killed;
     [SerializeField] Gradient healthcolors;
     SpriteRenderer SR;
+    [SerializeField] Image image;
     int index = 0;
 
     // Start is called before the first frame update
@@ -83,10 +85,13 @@ public class CropController : MonoBehaviour
 
     void updateHealth()
     {
-        //SR.color = healthcolors.Evaluate(_health / health);
+        
         float currentPercentage = (_health/health);
         
-        if(index < lifeSprites.Length + 1)
+        image.fillAmount = currentPercentage;
+        image.color = healthcolors.Evaluate(currentPercentage);
+
+        if (index < lifeSprites.Length + 1)
         {
             if ((lifeSprites[index + 1].percentage) > currentPercentage)
             {
