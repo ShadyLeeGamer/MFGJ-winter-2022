@@ -8,7 +8,7 @@ public enum AttackType {ground, air}
 public class CrowController : MonoBehaviour
 {
     private crowState state;
-    private CropController target;
+    [SerializeField] private CropController target;
     private Transform targetPosition;
     private Vector3 movePosition;
     private EnemySpawnController currentController;
@@ -19,11 +19,13 @@ public class CrowController : MonoBehaviour
     [SerializeField] private int braveness;
     [SerializeField] private AnimationCurve fleeTime;
     [SerializeField] private AttackType attackType;
+    [SerializeField] private LayerMask layers;
     private int _braveness;
     private Animator anim;
     Vector2 targetDir;
-
-
+    
+    private List<Vector3> obstacleAvoidanceList = new List<Vector3>();
+    bool obstacleAvoidance;
     [SerializeField] float testX, testY;
     [SerializeField] bool TestAnim;
 
@@ -91,8 +93,8 @@ public class CrowController : MonoBehaviour
     void moveCrow()
     {
         movePosition = targetPosition.position;
-        transform.position = Vector3.MoveTowards(transform.position, movePosition, moveSpeed * Time.deltaTime);
-        updateAnimator((movePosition - transform.position).normalized, false);
+        moveEnemy(movePosition, moveSpeed);
+        
     }
 
     void attackCrop()
@@ -109,9 +111,10 @@ public class CrowController : MonoBehaviour
     
     void scaredCrow()
     {
+
+        moveEnemy(movePosition, fleespeed);
         
-        transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
-        updateAnimator((movePosition - transform.position).normalized, false);
+        
         if (_braveness <= 0)
         {
             if (transform.position == movePosition || !GetComponentInChildren<Renderer>().isVisible) 
@@ -123,6 +126,117 @@ public class CrowController : MonoBehaviour
         }
         
     }
+
+
+    void moveEnemy(Vector3 movetarget, float speed)
+    {
+        if(attackType == AttackType.ground)
+        {
+            if (!obstacleAvoidance)
+            {
+                Vector2 movedirection = (movetarget - transform.position).normalized;
+
+
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, movedirection, 1, layers);
+
+                if (hit.collider != null)
+                {
+                    //set values
+                    obstacleAvoidance = true;
+                    var col = hit.collider.GetComponent<BoxCollider2D>();
+                    var angle = (hit.point - (Vector2)transform.position).normalized;
+                    var centre = (Vector2)hit.collider.transform.position - col.offset;
+                    var offset = 0.5f;
+                    Vector2[] corners = new Vector2[4];
+
+                    //tl
+                    corners[0] = new Vector2(centre.x + ((col.size.x / 2 + offset) * -1), centre.y + (col.size.y / 2) + offset);
+                    //tr
+                    corners[1] = new Vector2(centre.x + (col.size.x / 2) + offset, centre.y + (col.size.y / 2) + offset);
+                    //bl
+                    corners[3] = new Vector2(centre.x + ((col.size.x / 2 + offset) * -1), centre.y + ((col.size.y / 2 + offset) * -1));
+                    //br
+                    corners[2] = new Vector2(centre.x + (col.size.x / 2) + offset, centre.y + ((col.size.y / 2 + offset) * -1));
+
+                    float distance = 10000;
+                    int playerIndex = 0;
+                    int finalIndex = 0;
+                    for (int i = 0; i < corners.Length; i++)
+                    {
+                        var _distance = Vector2.Distance(corners[i], transform.position);
+                        if (_distance < distance)
+                        {
+                            distance = _distance;
+                            playerIndex = i;
+                        }
+                    }
+                    distance = 1000000;
+                    for (int i = 0; i < corners.Length; i++)
+                    {
+                        var _distance = Vector2.Distance(corners[i], movetarget);
+                        if (_distance < distance)
+                        {
+                            distance = _distance;
+                            finalIndex = i;
+                        }
+                    }
+                    if(playerIndex == finalIndex)
+                    {
+                        obstacleAvoidanceList.Add(corners[playerIndex]);
+                        movetarget = corners[playerIndex];
+                    }
+                    else
+                    {
+                        switch(Mathf.Abs(playerIndex - finalIndex))
+                        {
+                            case 1:
+                                obstacleAvoidanceList.Add(corners[playerIndex]);
+                                obstacleAvoidanceList.Add(corners[finalIndex]);
+                                break;
+                            case 2:
+                                if ((playerIndex - finalIndex) > 0)
+                                {
+                                    obstacleAvoidanceList.Add(corners[playerIndex]);
+                                    playerIndex++;
+                                    if (playerIndex >= corners.Length)
+                                        playerIndex = 0;
+                                    obstacleAvoidanceList.Add(corners[playerIndex]);
+                                }
+                                else
+                                {
+                                    obstacleAvoidanceList.Add(corners[playerIndex]);
+                                    obstacleAvoidanceList.Add(corners[finalIndex]);
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if(transform.position == obstacleAvoidanceList[0])
+                {
+                    obstacleAvoidanceList.RemoveAt(0);
+                    if(obstacleAvoidanceList.Count <= 0)
+                    {
+                        obstacleAvoidance = false;
+                    }
+                    else
+                    {
+                        movetarget = obstacleAvoidanceList[0];
+                    }
+                }
+                else
+                {
+                    movetarget = obstacleAvoidanceList[0];
+                }
+            }
+            
+        }
+        transform.position = Vector3.MoveTowards(transform.position, movetarget, speed * Time.deltaTime);
+        updateAnimator((movePosition - transform.position).normalized, false);
+    }
+
 
     public void ScareCrow(Vector3 playerPosition)
     {
