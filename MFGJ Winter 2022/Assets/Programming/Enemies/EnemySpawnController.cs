@@ -28,6 +28,10 @@ public class EnemySpawnController : MonoBehaviour
 
     Vector2 borders;
 
+    [SerializeField]
+    AudioClip gameTrack, gameOverTrack;
+    AudioStation audioStation;
+
     #region singleton
     public static EnemySpawnController s;
     private void Awake()
@@ -36,7 +40,6 @@ public class EnemySpawnController : MonoBehaviour
     }
 
     #endregion
-
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +54,9 @@ public class EnemySpawnController : MonoBehaviour
         birdSpawnsThisWave = birdsPerWave;
         cowSpawnsThisWave = cowsPerWave;
         wave++;
+
+        audioStation = AudioStation.Instance;
+        audioStation.StartNewMusicPlayer(gameTrack, true);
     }
 
 
@@ -158,6 +164,8 @@ public class EnemySpawnController : MonoBehaviour
         {
             Debug.Log("lost");
             AliveCheck.changeAliveState(false);
+
+            audioStation.StartNewMusicPlayer(gameOverTrack, false);
         }
     }
 
