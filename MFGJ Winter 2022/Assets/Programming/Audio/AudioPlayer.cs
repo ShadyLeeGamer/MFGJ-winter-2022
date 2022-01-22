@@ -38,6 +38,7 @@ public class AudioPlayer : MonoBehaviour//, IPooledObject
         AudioSource.outputAudioMixerGroup = SFXGroup;
         AudioSource.pitch = Random.Range(audioPitchMin, audioPitchMax);
         AudioSource.spatialBlend = is2D ? 0 : 1;
+        Play();
     }
 
     public void SetupMusic(AudioClip clip, bool loop)
@@ -48,6 +49,7 @@ public class AudioPlayer : MonoBehaviour//, IPooledObject
         AudioSource.pitch = 1;
         AudioSource.reverbZoneMix = 0; // NO REVERB ZONE EFFECT TO MUSIC
         AudioSource.spatialBlend = 0;
+        Play();
     }
 
     public void Play()

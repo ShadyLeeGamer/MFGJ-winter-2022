@@ -71,7 +71,7 @@ public class CrowController : MonoBehaviour
         currentController = controller;
 
         audioStation = AudioStation.Instance;
-        audioStation.StartNewRandomSFXPlayer(spawnSFX, default, null, 1, 1, true);
+        audioStation.StartNewRandomSFXPlayer(spawnSFX, default, null, 0.8f, 1.2f, true);
     }
 
     void GetNewTarget(CropController newtarget)
@@ -131,7 +131,7 @@ public class CrowController : MonoBehaviour
         var runawaydirection = playerPosition - transform.position;
         runawaydirection *= -1;
 
-        audioStation.StartNewRandomSFXPlayer(scaredSFX, transform.position, transform, 1, 1);
+        audioStation.StartNewRandomSFXPlayer(scaredSFX, transform.position, transform, 0.8f, 1.2f);
 
         state = crowState.scared;
 

@@ -24,18 +24,17 @@ public class AudioStation : MonoBehaviour
     }
 
     public void StartNewRandomSFXPlayer(AudioClip[] clips, Vector3 pos = default, Transform parent = null,
-                                        float pitchMin = 1, float pitchMax = 1, bool is2D = false)
+                                        float pitchMin = -1, float pitchMax = 1, bool is2D = false)
     {
         //AudioPlayer newAudioPlayer = objectPooler.GetAudioPlayer(pos, Quaternion.identity, default);
         AudioPlayer sfxAudioPlayer = Instantiate(audioPlayerPrefab, pos, Quaternion.identity);
         sfxAudioPlayer.transform.SetParent(parent ? parent : transform);
         audioPlayers.Add(sfxAudioPlayer);
         sfxAudioPlayer.SetupSFX(clips, pitchMin, pitchMax, is2D);
-        sfxAudioPlayer.Play();
     }
 
     public void StartNewSFXPlayer(AudioClip clip, Vector3 pos = default, Transform parent = null,
-                                  float pitchMin = 1, float pitchMax = 1, bool is2D = false)
+                                  float pitchMin = -1, float pitchMax = 1, bool is2D = false)
     {
         //AudioPlayer newAudioPlayer = objectPooler.GetAudioPlayer(pos, Quaternion.identity, default);
         if (parent)
@@ -44,7 +43,6 @@ public class AudioStation : MonoBehaviour
         sfxAudioPlayer.transform.SetParent(parent ? parent : transform);
         audioPlayers.Add(sfxAudioPlayer);
         sfxAudioPlayer.SetupSFX(clip, pitchMin, pitchMax, is2D);
-        sfxAudioPlayer.Play();
     }
 
     public void StartNewMusicPlayer(AudioClip clip, bool loop)
@@ -62,7 +60,6 @@ public class AudioStation : MonoBehaviour
         currentMusicPlayer.transform.SetParent(transform);
         audioPlayers.Add(currentMusicPlayer);
         currentMusicPlayer.SetupMusic(clip, loop);
-        currentMusicPlayer.Play();
     }
 
     public void ClearSFXPlayers()
