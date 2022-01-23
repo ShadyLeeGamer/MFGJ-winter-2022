@@ -32,6 +32,8 @@ public class EnemySpawnController : MonoBehaviour
     AudioClip gameTrack, gameOverTrack;
     AudioStation audioStation;
 
+    GameUI gameUI;
+
     #region singleton
     public static EnemySpawnController s;
     private void Awake()
@@ -57,6 +59,13 @@ public class EnemySpawnController : MonoBehaviour
 
         audioStation = AudioStation.Instance;
         audioStation.StartNewMusicPlayer(gameTrack, true);
+
+        gameUI = GameUI.Instance;
+        gameUI.SetCropsRemainingBar(activeCrops.Count, activeCrops.Count);
+
+        gameUI.SetCropEatersRemainingBar(birdSpawnsThisWave + cowSpawnsThisWave,
+                                         birdSpawnsThisWave + cowSpawnsThisWave);
+        gameUI.SetCurrentWaveDisplay(wave);
     }
 
 
@@ -136,6 +145,7 @@ public class EnemySpawnController : MonoBehaviour
         
         birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
         cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
+
         spawnsPSec = spawnRateScaling.Evaluate(wave);
         StartCoroutine(waveTimer());
     }
@@ -146,13 +156,16 @@ public class EnemySpawnController : MonoBehaviour
         {
             yield return null;
         }
-        yield return new WaitForSeconds(5);
+        //yield return new WaitForSeconds(5);
         if (AliveCheck.TestForAlive())
         {
             wave++;
             inWave = true;
             Debug.Log("next wave");
             Debug.Log("wave " + wave);
+            gameUI.SetCropEatersRemainingBar(birdSpawnsThisWave + cowSpawnsThisWave,
+                                             birdSpawnsThisWave + cowSpawnsThisWave);
+            gameUI.SetCurrentWaveDisplay(wave);
         }
         
     }
@@ -160,7 +173,9 @@ public class EnemySpawnController : MonoBehaviour
     public void removePlant(CropController target)
     {
         activeCrops.Remove(target);
-        if(activeCrops.Count == 0)
+        gameUI.SetCropsRemainingBar(activeCrops.Count, cropObjects.Length);
+
+        if (activeCrops.Count == 0)
         {
             Debug.Log("lost");
             AliveCheck.changeAliveState(false);
@@ -182,6 +197,7 @@ public class EnemySpawnController : MonoBehaviour
     public void RemoveEnemy()
     {
         enemiesAlive--;
+        gameUI.SetCropEatersRemainingBar(enemiesAlive, birdSpawnsThisWave + cowSpawnsThisWave);
     }
 
     public CropController getNewTarget()

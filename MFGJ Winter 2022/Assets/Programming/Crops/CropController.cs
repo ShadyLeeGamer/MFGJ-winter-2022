@@ -85,7 +85,6 @@ public class CropController : MonoBehaviour
 
     void updateHealth()
     {
-        
         float currentPercentage = (_health/health);
         
         image.fillAmount = currentPercentage;
