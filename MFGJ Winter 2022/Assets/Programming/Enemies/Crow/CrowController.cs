@@ -13,23 +13,30 @@ public class CrowController : MonoBehaviour
     private Vector3 movePosition;
     private EnemySpawnController currentController;
 
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float fleespeed = 10f;
-    [SerializeField] private float power = 1;
-    [SerializeField] private int braveness;
-    [SerializeField] private AnimationCurve fleeTime;
+    private float moveSpeed = 5f;
+    private float fleespeed = 10f;
+    private float power = 1;
+    private int braveness;
+    
     [SerializeField] private AttackType attackType;
     [SerializeField] private LayerMask layers;
     private int _braveness;
     private Animator anim;
     Vector2 targetDir;
     
+    [Header("BalancingCurves")]
+    [SerializeField] private AnimationCurve fleeTime;
+    [SerializeField] private AnimationCurve scaretimeOverBraveness, bravenessOverWave, speedOverWave, powerOverWave;
+    [SerializeField] float fleeSpeedMultiplier;
+
     private List<Vector3> obstacleAvoidanceList = new List<Vector3>();
     bool obstacleAvoidance;
-    [SerializeField] float testX, testY;
-    [SerializeField] bool TestAnim;
-
-    [SerializeField] AudioClip[] spawnSFX, scaredSFX;
+    
+    
+    float scareTime;
+    [Header("Audio")]
+    [SerializeField] AudioClip[] spawnSFX;
+    [SerializeField] AudioClip[]  scaredSFX;
     AudioStation audioStation;
 
 
@@ -39,7 +46,7 @@ public class CrowController : MonoBehaviour
         state = crowState.moving;
         targetPosition = target.transform;
         _braveness = braveness;
-        
+        scareTime = scaretimeOverBraveness.Evaluate(braveness);
         anim = gameObject.GetComponentInChildren<Animator>();
 
     }
@@ -59,11 +66,7 @@ public class CrowController : MonoBehaviour
                 scaredCrow();
                 break;
         }
-        if (TestAnim)
-        {
-            updateAnimator(new Vector3(testX, testY), true);
-            TestAnim = false;
-        }
+        
     }
 
     public void startCrow(CropController newtarget, EnemySpawnController controller)
@@ -71,7 +74,12 @@ public class CrowController : MonoBehaviour
         target = newtarget;
         target.killed += killedPlant;
         currentController = controller;
-        
+        var wave = controller.wave;
+
+        moveSpeed = speedOverWave.Evaluate(wave);
+        braveness = Mathf.FloorToInt(bravenessOverWave.Evaluate(wave));
+        power = powerOverWave.Evaluate(wave);
+        fleespeed = moveSpeed * fleeSpeedMultiplier;
         audioStation = AudioStation.Instance;
         audioStation.StartNewRandomSFXPlayer(spawnSFX, default, null, 0.8f, 1.2f, true);
         
@@ -256,11 +264,25 @@ public class CrowController : MonoBehaviour
         {
             if (attackType == AttackType.ground)
             {
+                scareTime -= Time.fixedDeltaTime;
+                if(scareTime <= 0)
+                {
+                    audioStation.StartNewRandomSFXPlayer(scaredSFX, transform.position, transform, 0.8f, 1.2f);
 
+                    state = crowState.scared;
+
+                    target.killed -= killedPlant;
+                    _braveness--;
+                    if (_braveness > 0)
+                    {
+                        StartCoroutine(fleeForTime());
+                    }
+                    movePosition = transform.position + (runawaydirection.normalized * 20);
+                }
             }
             else
             {
-
+                
                 
                 audioStation.StartNewRandomSFXPlayer(scaredSFX, transform.position, transform, 0.8f, 1.2f);
 
@@ -272,7 +294,7 @@ public class CrowController : MonoBehaviour
                 {
                     StartCoroutine(fleeForTime());
                 }
-                
+                movePosition = transform.position + (runawaydirection.normalized * 20);
 
 
             }
@@ -286,7 +308,7 @@ public class CrowController : MonoBehaviour
         float time = fleeTime.Evaluate(braveness);
         yield return new WaitForSeconds(time);
         GetNewTarget(currentController.getNewTarget());
-        
+        scareTime = scaretimeOverBraveness.Evaluate(braveness);
 
     }
 
