@@ -204,7 +204,7 @@ MonoBehaviour:
   attackType: 0
   layers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   fleeTime:
     serializedVersion: 2
     m_Curve:
