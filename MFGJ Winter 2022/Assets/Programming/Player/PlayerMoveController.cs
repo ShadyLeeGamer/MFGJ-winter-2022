@@ -49,6 +49,13 @@ public class PlayerMoveController : MonoBehaviour
             collision.GetComponent<CrowController>().ScareCrow(transform.position);
         }
     }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Crow"))
+        {
+            collision.GetComponent<CrowController>().ScareCrow(transform.position);
+        }
+    }
 
 
 }

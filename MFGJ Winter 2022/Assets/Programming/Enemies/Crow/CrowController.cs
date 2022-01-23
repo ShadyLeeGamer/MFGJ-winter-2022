@@ -8,7 +8,7 @@ public enum AttackType {ground, air}
 public class CrowController : MonoBehaviour
 {
     private crowState state;
-    [SerializeField] private CropController target;
+    private CropController target;
     private Transform targetPosition;
     private Vector3 movePosition;
     private EnemySpawnController currentController;
@@ -71,9 +71,10 @@ public class CrowController : MonoBehaviour
         target = newtarget;
         target.killed += killedPlant;
         currentController = controller;
-
+        
         audioStation = AudioStation.Instance;
         audioStation.StartNewRandomSFXPlayer(spawnSFX, default, null, 0.8f, 1.2f, true);
+        
     }
 
     void GetNewTarget(CropController newtarget)
@@ -248,21 +249,36 @@ public class CrowController : MonoBehaviour
 
     public void ScareCrow(Vector3 playerPosition)
     {
+        
         var runawaydirection = playerPosition - transform.position;
         runawaydirection *= -1;
-
-        audioStation.StartNewRandomSFXPlayer(scaredSFX, transform.position, transform, 0.8f, 1.2f);
-
-        state = crowState.scared;
-
-        target.killed -= killedPlant;
-        _braveness--;
-        if(_braveness > 0)
+        if (state != crowState.scared)
         {
-            StartCoroutine(fleeForTime());
+            if (attackType == AttackType.ground)
+            {
+
+            }
+            else
+            {
+
+                
+                audioStation.StartNewRandomSFXPlayer(scaredSFX, transform.position, transform, 0.8f, 1.2f);
+
+                state = crowState.scared;
+
+                target.killed -= killedPlant;
+                _braveness--;
+                if (_braveness > 0)
+                {
+                    StartCoroutine(fleeForTime());
+                }
+                
+
+
+            }
         }
+            
         
-        movePosition = transform.position + (runawaydirection.normalized * 20);
     }
 
     private IEnumerator fleeForTime()
@@ -322,4 +338,5 @@ public class CrowController : MonoBehaviour
             }
         }
     }
+    
 }
