@@ -26,8 +26,8 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] AnimationCurve cowAmountScaling;
     [SerializeField] AnimationCurve spawnRateScaling;
 
-    Vector2 borders;
-
+    [SerializeField] Vector2 borders;
+    Vector2 _borders;
     [SerializeField]
     AudioClip gameTrack, gameOverTrack;
     AudioStation audioStation;
@@ -51,7 +51,7 @@ public class EnemySpawnController : MonoBehaviour
         {
             activeCrops.Add(crop.GetComponent<CropController>());
         }
-        CalculateBordes();
+        
         inWave = true;
         birdSpawnsThisWave = birdsPerWave;
         cowSpawnsThisWave = cowsPerWave;
@@ -60,7 +60,7 @@ public class EnemySpawnController : MonoBehaviour
         enemiesAlive = totalEnemies;
         audioStation = AudioStation.Instance;
         audioStation.StartNewMusicPlayer(gameTrack, true);
-
+        _borders = borders / 2;
         gameUI = GameUI.Instance;
         setUI();
     }
@@ -75,11 +75,7 @@ public class EnemySpawnController : MonoBehaviour
 
     
 
-    void CalculateBordes()
-    {
-        borders = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width + 0.5f, Screen.height + 0.5f));
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -191,7 +187,7 @@ public class EnemySpawnController : MonoBehaviour
 
     void SpawnBird(GameObject objectToSpawn)
     {
-        CalculateBordes();
+        
         var spawnPisition = CalculateSpawnPosition();
         int target = Random.Range(0, activeCrops.Count);
         var bird = Instantiate(objectToSpawn, spawnPisition, Quaternion.Euler(Vector3.zero));
@@ -221,7 +217,7 @@ public class EnemySpawnController : MonoBehaviour
         Vector3 position;
         
         
-        position = Random.insideUnitCircle * borders;
+        position = Random.insideUnitCircle * _borders;
 
         int x = 1;
         if(position.x < 0)
@@ -234,8 +230,14 @@ public class EnemySpawnController : MonoBehaviour
             y = -1;
         }
 
-        position += new Vector3(borders.x * x, borders.y * y);
+        position += new Vector3(_borders.x * x, _borders.y * y);
         
         return position;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(transform.position, borders);
+    }
+
 }
