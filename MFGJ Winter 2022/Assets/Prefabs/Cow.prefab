@@ -233,7 +233,7 @@ MonoBehaviour:
   attackType: 0
   layers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   testX: 0
   testY: 0
   TestAnim: 0
