@@ -30,6 +30,7 @@ public class GameUI : MonoBehaviour
     {
         isPaused = !isPaused;
         pauseMenu.SetActive(isPaused);
+        gameUI.SetActive(!isPaused);
         Time.timeScale = isPaused ? 0 : 1;
         audioStation.SetAllPlayerPause(isPaused);
     }
