@@ -191,7 +191,7 @@ public class EnemySpawnController : MonoBehaviour
 
     void SpawnBird(GameObject objectToSpawn)
     {
-        
+        CalculateBordes();
         var spawnPisition = CalculateSpawnPosition();
         int target = Random.Range(0, activeCrops.Count);
         var bird = Instantiate(objectToSpawn, spawnPisition, Quaternion.Euler(Vector3.zero));

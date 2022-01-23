@@ -21,6 +21,14 @@ public class CropController : MonoBehaviour
     [SerializeField] Image image;
     int index = 0;
 
+    Canvas UI;
+    [SerializeField] GameObject warningSign;
+    [SerializeField] RectTransform currentWarningSign;
+    GameObject player;
+
+
+    Vector2 borders;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +36,17 @@ public class CropController : MonoBehaviour
         alive = true;
         SR = gameObject.GetComponentInChildren<SpriteRenderer>();
         SR.sortingOrder = Mathf.CeilToInt(transform.position.y * 100) * -1;
+        UI = GameObject.FindGameObjectWithTag("UI").GetComponent<Canvas>();
+        CalculateBordes();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    
+    void CalculateBordes()
+    {
+        var rect = UI.GetComponent<RectTransform>();
+        borders = rect.sizeDelta / 2;
+        
+    }
 
     public void Update()
     {
@@ -72,16 +88,64 @@ public class CropController : MonoBehaviour
         _health -= damage * Time.deltaTime;
         attacked = true;
         updateHealth();
-        
+
+
+        if (!SR.isVisible)
+        {
+            if(currentWarningSign != null)
+            {
+                
+                SetWarningPosition();
+            }
+            else
+            {
+                currentWarningSign = Instantiate(warningSign, Vector3.zero, Quaternion.Euler(Vector3.zero), UI.transform).GetComponent<RectTransform>();
+                SetWarningPosition();
+            }
+        }
+        else
+        {
+            if (currentWarningSign != null)
+            {
+
+                Destroy(currentWarningSign.gameObject);
+                currentWarningSign = null;
+            }
+        }
+
         if (_health < 0)
         {
             alive = false;
-            
+            if (currentWarningSign != null)
+            {
+
+                Destroy(currentWarningSign.gameObject);
+                currentWarningSign = null;
+            }
             killed?.Invoke();
             EnemySpawnController.s.removePlant(this);
         }
         
     }
+
+
+    void SetWarningPosition()
+    {
+        CalculateBordes();
+        Debug.DrawLine(transform.position, player.transform.position, Color.red, 0.5f);
+        var direction = (transform.position - player.transform.position).normalized;
+        
+        var offset = currentWarningSign.sizeDelta / 2;
+        offset *= -1;
+        offset += borders;
+
+        
+
+        var position = offset * direction;
+        
+        currentWarningSign.anchoredPosition = position;
+    }
+
 
     void updateHealth()
     {

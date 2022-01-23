@@ -221,6 +221,8 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   image: {fileID: 832552864218222584}
+  warningSign: {fileID: 343522065091392488, guid: 6d9dc47ab3296f84694b5befacbe8e10, type: 3}
+  currentWarningSign: {fileID: 0}
 --- !u!1 &7792568537917678292
 GameObject:
   m_ObjectHideFlags: 0

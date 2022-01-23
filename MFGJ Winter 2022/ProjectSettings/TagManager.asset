@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Crow
   - Crop
+  - UI
   layers:
   - Default
   - TransparentFX
