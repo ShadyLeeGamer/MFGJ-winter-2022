@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 3033027310444000171}
   - component: {fileID: 7987029315742083827}
   - component: {fileID: 6601713218152064581}
-  - component: {fileID: -3596765452636807136}
   - component: {fileID: 2040993142621564969}
   m_Layer: 0
   m_Name: Cow
@@ -202,10 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9175a92758d1ef2499c644521f51df07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  fleespeed: 4
-  power: 0.2
-  braveness: 5
+  attackType: 0
+  layers:
+    serializedVersion: 2
+    m_Bits: 128
   fleeTime:
     serializedVersion: 2
     m_Curve:
@@ -230,10 +229,112 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  attackType: 0
-  testX: 0
-  testY: 0
-  TestAnim: 0
+  scaretimeOverBraveness:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.000832539
+      value: 0.04885364
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 50
+      value: 10
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  bravenessOverWave:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 5
+      inSlope: 0.71319807
+      outSlope: 0.71319807
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.26380953
+    - serializedVersion: 3
+      time: 57.456146
+      value: 46.388382
+      inSlope: 0.018405728
+      outSlope: 0.018405728
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3883286
+    - serializedVersion: 3
+      time: 100
+      value: 50
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speedOverWave:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 2.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 20
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  powerOverWave:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fleeSpeedMultiplier: 0.5
   spawnSFX:
   - {fileID: 8300000, guid: 84b534b044dff3f479e1855070bf1ff5, type: 3}
   scaredSFX:
@@ -254,14 +355,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.23
---- !u!81 &-3596765452636807136
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884646957721075859}
-  m_Enabled: 1
 --- !u!82 &2040993142621564969
 AudioSource:
   m_ObjectHideFlags: 0

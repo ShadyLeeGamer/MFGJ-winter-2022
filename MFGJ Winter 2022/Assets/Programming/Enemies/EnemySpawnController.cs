@@ -10,7 +10,7 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private int cowsPerWave = 1;
     private GameObject[] cropObjects;
     private int enemiesAlive;
-    
+    private int totalEnemies;
 
     private List<CropController> activeCrops = new List<CropController>();
     [SerializeField] private float spawnsPSec;
@@ -18,7 +18,7 @@ public class EnemySpawnController : MonoBehaviour
 
     bool inWave;
 
-    int wave;
+    public int wave { get; private set;}
     int birdSpawnsThisWave, cowSpawnsThisWave;
 
     [Header("waveBalancing")]
@@ -31,6 +31,8 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField]
     AudioClip gameTrack, gameOverTrack;
     AudioStation audioStation;
+
+    GameUI gameUI;
 
     #region singleton
     public static EnemySpawnController s;
@@ -54,11 +56,24 @@ public class EnemySpawnController : MonoBehaviour
         birdSpawnsThisWave = birdsPerWave;
         cowSpawnsThisWave = cowsPerWave;
         wave++;
-
+        totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave;
+        enemiesAlive = totalEnemies;
         audioStation = AudioStation.Instance;
         audioStation.StartNewMusicPlayer(gameTrack, true);
+
+        gameUI = GameUI.Instance;
+        setUI();
     }
 
+    void setUI()
+    {
+        gameUI.SetCropsRemainingBar(activeCrops.Count, cropObjects.Length);
+        gameUI.SetCropEatersRemainingBar(enemiesAlive, totalEnemies);
+        gameUI.SetCurrentWaveDisplay(wave);
+    }
+
+
+    
 
     void CalculateBordes()
     {
@@ -134,8 +149,8 @@ public class EnemySpawnController : MonoBehaviour
     {
         inWave = false;
         
-        birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
-        cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
+        
+
         spawnsPSec = spawnRateScaling.Evaluate(wave);
         StartCoroutine(waveTimer());
     }
@@ -146,13 +161,16 @@ public class EnemySpawnController : MonoBehaviour
         {
             yield return null;
         }
-        yield return new WaitForSeconds(5);
+        //yield return new WaitForSeconds(5);
         if (AliveCheck.TestForAlive())
         {
             wave++;
             inWave = true;
-            Debug.Log("next wave");
-            Debug.Log("wave " + wave);
+            birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
+            cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
+            totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave;
+            enemiesAlive = totalEnemies;
+            setUI();
         }
         
     }
@@ -160,7 +178,9 @@ public class EnemySpawnController : MonoBehaviour
     public void removePlant(CropController target)
     {
         activeCrops.Remove(target);
-        if(activeCrops.Count == 0)
+        setUI();
+
+        if (activeCrops.Count == 0)
         {
             Debug.Log("lost");
             AliveCheck.changeAliveState(false);
@@ -171,7 +191,7 @@ public class EnemySpawnController : MonoBehaviour
 
     void SpawnBird(GameObject objectToSpawn)
     {
-        enemiesAlive++;
+        CalculateBordes();
         var spawnPisition = CalculateSpawnPosition();
         int target = Random.Range(0, activeCrops.Count);
         var bird = Instantiate(objectToSpawn, spawnPisition, Quaternion.Euler(Vector3.zero));
@@ -182,6 +202,7 @@ public class EnemySpawnController : MonoBehaviour
     public void RemoveEnemy()
     {
         enemiesAlive--;
+        setUI();
     }
 
     public CropController getNewTarget()

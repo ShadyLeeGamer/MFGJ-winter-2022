@@ -63,13 +63,14 @@ public class AudioPlayer : MonoBehaviour//, IPooledObject
     {
         if (started)
             if (!AudioSource.loop)
-                StartCoroutine(RecycleAfterAudioEnd());
+                StartCoroutine(DestroyAfterAudioEnd());
     }
 
-    IEnumerator RecycleAfterAudioEnd()
+    IEnumerator DestroyAfterAudioEnd()
     {
         yield return new WaitForSeconds(AudioSource.clip.length + .5f);
         audioStation.audioPlayers.Remove(this);
+        Destroy(gameObject);
         //objectPooler.RecycleAudioPlayer(this);
     }
 }

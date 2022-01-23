@@ -109,6 +109,15 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 10.095498
+      value: 1.0153847
+      inSlope: -0.001943859
+      outSlope: -0.001943859
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.110166915
+    - serializedVersion: 3
       time: 100
       value: 5
       inSlope: 0
@@ -120,3 +129,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  gameTrack: {fileID: 8300000, guid: e1a4783bfa1ff0e4d8318a449c4c460d, type: 3}
+  gameOverTrack: {fileID: 8300000, guid: 202672669d27cf84f8c7303f5730d53b, type: 3}
