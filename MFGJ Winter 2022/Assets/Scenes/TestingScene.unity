@@ -636,6 +636,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
+      propertyPath: sprintKey
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
+      propertyPath: staminaDec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
+      propertyPath: staminaInc
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
+      propertyPath: sprintSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
 --- !u!1 &486086361
@@ -993,6 +1009,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 236687857949518198, guid: e23ea89ac469bb44a90e6e5358e166d1, type: 3}
   m_PrefabInstance: {fileID: 236687858344342412}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &696756633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3375482638055575943, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
+  m_PrefabInstance: {fileID: 1892202680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &795489844
 GameObject:
   m_ObjectHideFlags: 0
@@ -13574,6 +13601,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3375482637170945336, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
+      propertyPath: playerStaminaBar
+      value: 
+      objectReference: {fileID: 696756633}
     - target: {fileID: 3375482637170945337, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
       propertyPath: m_Pivot.x
       value: 0

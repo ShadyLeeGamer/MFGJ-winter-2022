@@ -11,7 +11,7 @@ public class GameUI : MonoBehaviour
 
     AudioStation audioStation;
 
-    [SerializeField] Slider cropsRemainingBar, cropEatersRemainingBar;
+    [SerializeField] Slider cropsRemainingBar, cropEatersRemainingBar, playerStaminaBar;
     [SerializeField] TextMeshProUGUI currentWaveDisplay;
 
     public static GameUI Instance { get; private set; }
@@ -45,6 +45,12 @@ public class GameUI : MonoBehaviour
     {
         cropEatersRemainingBar.maxValue = maxValue;
         cropEatersRemainingBar.value = value;
+    }
+
+    public void SetPlayerStaminaBar(float value, float maxValue)
+    {
+        playerStaminaBar.value = value;
+        playerStaminaBar.maxValue = maxValue;
     }
 
     public void SetCurrentWaveDisplay(float value)

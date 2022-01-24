@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerMoveController : MonoBehaviour
 {
     private Rigidbody2D RB;
-    [SerializeField]private float moveSpeed = 5f;
+    [SerializeField] private float walkSpeed = 5f, sprintSpeed;
+    [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
+    [SerializeField, Range(0, 1)] float staminaDec, staminaInc;
+    float stamina = 1;
+    bool isSprinting;
     Vector2 moveInput;
     private Animator anim;
     private SpriteRenderer SR;
+
+    GameUI gameUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +24,8 @@ public class PlayerMoveController : MonoBehaviour
         AliveCheck.changeAliveState(true);
         anim = GetComponentInChildren<Animator>();
         SR = GetComponentInChildren<SpriteRenderer>();
+
+        gameUI = GameUI.Instance;
     }
 
     // Update is called once per frame
@@ -28,18 +37,33 @@ public class PlayerMoveController : MonoBehaviour
         anim.SetFloat("X", moveInput.x);
         anim.SetFloat("Y", moveInput.y);
         moveInput = moveInput.normalized;
-        
-        
+
+        if (Input.GetKey(sprintKey))
+        {
+            if (stamina > 0)
+            {
+                stamina -= Time.deltaTime * staminaDec;
+                isSprinting = true;
+            }
+            else
+                isSprinting = false;
+        }
+        else
+        {
+            isSprinting = false;
+            if (stamina < 1)
+                stamina += Time.deltaTime * staminaInc;
+        }
+        Mathf.Clamp01(stamina);
+        gameUI.SetPlayerStaminaBar(stamina, 1);
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        moveInput *= moveSpeed * Time.fixedDeltaTime;
+        moveInput *= (isSprinting ? sprintSpeed : walkSpeed) * Time.fixedDeltaTime;
         
         RB.MovePosition((Vector2)transform.position + moveInput);
         SR.sortingOrder = Mathf.CeilToInt(transform.position.y * 100) * -1;
-
-
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
