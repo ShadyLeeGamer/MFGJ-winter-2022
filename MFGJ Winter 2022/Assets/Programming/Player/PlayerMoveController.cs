@@ -40,22 +40,18 @@ public class PlayerMoveController : MonoBehaviour
 
         if (Input.GetKey(sprintKey))
         {
-            if (stamina > 0)
+            if (stamina > 0 && moveInput != Vector2.zero)
             {
                 stamina -= Time.deltaTime * staminaDec;
                 isSprinting = true;
+                Mathf.Clamp01(stamina);
+                gameUI.SetPlayerStaminaBar(stamina, 1);
             }
             else
                 isSprinting = false;
         }
         else
-        {
             isSprinting = false;
-            if (stamina < 1)
-                stamina += Time.deltaTime * staminaInc;
-        }
-        Mathf.Clamp01(stamina);
-        gameUI.SetPlayerStaminaBar(stamina, 1);
     }
 
     void FixedUpdate()
@@ -79,9 +75,16 @@ public class PlayerMoveController : MonoBehaviour
         {
             collision.GetComponent<CrowController>().ScareCrow(transform.position);
         }
+        if (collision.CompareTag("Hay"))
+        {
+            if (stamina < 1 && !Input.GetKey(sprintKey))
+            {
+                stamina += Time.deltaTime * staminaInc;
+                Mathf.Clamp01(stamina);
+                gameUI.SetPlayerStaminaBar(stamina, 1);
+            }
+        }
     }
-
-
 }
 
 
