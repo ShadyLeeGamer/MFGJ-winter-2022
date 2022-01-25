@@ -129,7 +129,7 @@ public class CrowController : MonoBehaviour
         
         
 
-        transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
         updateAnimator((movePosition - transform.position).normalized, false);
 
         if (_braveness <= 0)

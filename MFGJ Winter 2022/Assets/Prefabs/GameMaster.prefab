@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6040606236078279840}
   - component: {fileID: 6040606236078279841}
+  - component: {fileID: 817521047156241128}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -132,3 +133,15 @@ MonoBehaviour:
   borders: {x: 41.32, y: 34.51}
   gameTrack: {fileID: 8300000, guid: e1a4783bfa1ff0e4d8318a449c4c460d, type: 3}
   gameOverTrack: {fileID: 8300000, guid: 202672669d27cf84f8c7303f5730d53b, type: 3}
+--- !u!114 &817521047156241128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6040606236078279854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb40b1fa0d6443a41adefc6372665343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

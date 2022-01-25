@@ -162,6 +162,7 @@ public class EnemySpawnController : MonoBehaviour
         {
             wave++;
             inWave = true;
+            AddCoins();
             birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
             cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
             totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave;
@@ -169,6 +170,13 @@ public class EnemySpawnController : MonoBehaviour
             setUI();
         }
         
+    }
+
+
+    void AddCoins()
+    {
+        int amount = activeCrops.Count - 1;
+        ShopCurrencyController.instance.AddCoins(amount);
     }
 
     public void removePlant(CropController target)
