@@ -13,6 +13,7 @@ public class EnemySpawnController : MonoBehaviour
     private int totalEnemies;
 
     private List<CropController> activeCrops = new List<CropController>();
+    private List<CropController> deadCrops = new List<CropController>();
     [SerializeField] private float spawnsPSec;
     float timer;
 
@@ -175,13 +176,14 @@ public class EnemySpawnController : MonoBehaviour
 
     void AddCoins()
     {
-        int amount = activeCrops.Count - 1;
+        int amount = activeCrops.Count;
         ShopCurrencyController.instance.AddCoins(amount);
     }
 
     public void removePlant(CropController target)
     {
         activeCrops.Remove(target);
+        deadCrops.Add(target);
         setUI();
 
         if (activeCrops.Count == 0)
@@ -192,6 +194,33 @@ public class EnemySpawnController : MonoBehaviour
             audioStation.StartNewMusicPlayer(gameOverTrack, false);
         }
     }
+
+    public bool CheckForDeadPlants()
+    {
+        if(deadCrops.Count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    public void RevivePlant()
+    {
+        
+        
+        int target = Random.Range(0, deadCrops.Count);
+        var plant = deadCrops[target];
+        Debug.Log(plant);
+        deadCrops.Remove(plant);
+        activeCrops.Add(plant);
+        plant.revivePlant();
+        setUI();
+    }
+
 
     void SpawnBird(GameObject objectToSpawn)
     {

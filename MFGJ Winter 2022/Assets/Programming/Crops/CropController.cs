@@ -48,6 +48,15 @@ public class CropController : MonoBehaviour
         
     }
 
+    public void revivePlant()
+    {
+        _health = health;
+        index = 0;
+        updateHealth();
+        alive = true;
+    }
+
+
     public void Update()
     {
         if (alive)

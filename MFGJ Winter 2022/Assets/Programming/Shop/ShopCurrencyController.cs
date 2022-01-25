@@ -33,9 +33,9 @@ public class ShopCurrencyController : MonoBehaviour
 
     public bool purchase(int cost)
     {
-       if(coins > cost)
+       if(coins >= cost)
         {
-            coins -= coins;
+            coins -= cost;
             ui.UpdateCoinCount(coins);
             return true;
         }

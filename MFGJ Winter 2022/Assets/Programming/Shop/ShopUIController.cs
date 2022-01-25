@@ -6,7 +6,8 @@ using TMPro;
 public class ShopUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI count;
-
+    [SerializeField] TextMeshProUGUI[] costs;
+    [SerializeField] GameObject shopUI;
     #region singleton
     public static ShopUIController instance;
     private void Awake()
@@ -16,21 +17,26 @@ public class ShopUIController : MonoBehaviour
     #endregion
 
 
+    public void ChangeShopUI(bool state)
+    {
+        shopUI.SetActive(state);
+    }
+
+
+    public void changeCost(int target, int amount)
+    {
+        costs[target].text = amount.ToString();
+    }
 
     public void UpdateCoinCount(int amount)
     {
         count.text = amount.ToString();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
+
+
+
+
+
