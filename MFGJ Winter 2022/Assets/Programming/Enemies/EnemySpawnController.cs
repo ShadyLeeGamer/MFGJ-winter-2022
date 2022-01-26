@@ -13,6 +13,7 @@ public class EnemySpawnController : MonoBehaviour
     private int totalEnemies;
 
     private List<CropController> activeCrops = new List<CropController>();
+    private List<CropController> deadCrops = new List<CropController>();
     [SerializeField] private float spawnsPSec;
     float timer;
 
@@ -26,8 +27,8 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] AnimationCurve cowAmountScaling;
     [SerializeField] AnimationCurve spawnRateScaling;
 
-    Vector2 borders;
-
+    [SerializeField] Vector2 borders;
+    Vector2 _borders;
     [SerializeField]
     AudioClip gameTrack, gameOverTrack;
     AudioStation audioStation;
@@ -51,7 +52,7 @@ public class EnemySpawnController : MonoBehaviour
         {
             activeCrops.Add(crop.GetComponent<CropController>());
         }
-        CalculateBordes();
+        
         inWave = true;
         birdSpawnsThisWave = birdsPerWave;
         cowSpawnsThisWave = cowsPerWave;
@@ -60,7 +61,7 @@ public class EnemySpawnController : MonoBehaviour
         enemiesAlive = totalEnemies;
         audioStation = AudioStation.Instance;
         audioStation.StartNewMusicPlayer(gameTrack, true);
-
+        _borders = borders / 2;
         gameUI = GameUI.Instance;
         setUI();
     }
@@ -75,11 +76,7 @@ public class EnemySpawnController : MonoBehaviour
 
     
 
-    void CalculateBordes()
-    {
-        borders = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width + 0.5f, Screen.height + 0.5f));
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -166,6 +163,7 @@ public class EnemySpawnController : MonoBehaviour
         {
             wave++;
             inWave = true;
+            AddCoins();
             birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
             cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
             totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave;
@@ -175,9 +173,17 @@ public class EnemySpawnController : MonoBehaviour
         
     }
 
+
+    void AddCoins()
+    {
+        int amount = activeCrops.Count;
+        ShopCurrencyController.instance.AddCoins(amount);
+    }
+
     public void removePlant(CropController target)
     {
         activeCrops.Remove(target);
+        deadCrops.Add(target);
         setUI();
 
         if (activeCrops.Count == 0)
@@ -189,9 +195,36 @@ public class EnemySpawnController : MonoBehaviour
         }
     }
 
+    public bool CheckForDeadPlants()
+    {
+        if(deadCrops.Count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    public void RevivePlant()
+    {
+        
+        
+        int target = Random.Range(0, deadCrops.Count);
+        var plant = deadCrops[target];
+        Debug.Log(plant);
+        deadCrops.Remove(plant);
+        activeCrops.Add(plant);
+        plant.revivePlant();
+        setUI();
+    }
+
+
     void SpawnBird(GameObject objectToSpawn)
     {
-        CalculateBordes();
+        
         var spawnPisition = CalculateSpawnPosition();
         int target = Random.Range(0, activeCrops.Count);
         var bird = Instantiate(objectToSpawn, spawnPisition, Quaternion.Euler(Vector3.zero));
@@ -221,7 +254,7 @@ public class EnemySpawnController : MonoBehaviour
         Vector3 position;
         
         
-        position = Random.insideUnitCircle * borders;
+        position = Random.insideUnitCircle * _borders;
 
         int x = 1;
         if(position.x < 0)
@@ -234,8 +267,14 @@ public class EnemySpawnController : MonoBehaviour
             y = -1;
         }
 
-        position += new Vector3(borders.x * x, borders.y * y);
+        position += new Vector3(_borders.x * x, _borders.y * y);
         
         return position;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(transform.position, borders);
+    }
+
 }

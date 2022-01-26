@@ -977,10 +977,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2647547150219986809, guid: 7d5ecbab00c13fd4eb84b57e4d880781, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -785753953
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d5ecbab00c13fd4eb84b57e4d880781, type: 3}
 --- !u!4 &683397275 stripped
@@ -13507,15 +13503,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6040606236078279840, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9539375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6040606236078279840, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.38663778
+      value: 2.61
       objectReference: {fileID: 0}
     - target: {fileID: 6040606236078279840, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -150.5641
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6040606236078279840, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14262,6 +14258,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1105528214797974802, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
+      propertyPath: defaultVolume.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105528214797974802, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
+      propertyPath: defaultVolume.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105528214797974802, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
+      propertyPath: defaultVolume.Array.data[2]
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1105528215232055884, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
       propertyPath: m_RootOrder
       value: 6
