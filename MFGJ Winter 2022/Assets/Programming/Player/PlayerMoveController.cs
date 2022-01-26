@@ -78,8 +78,8 @@ public class PlayerMoveController : MonoBehaviour
     void UpdateHayFallParticle()
     {
         ParticleSystem.EmissionModule particleEmission = hayFallParticle.emission;
-        particleEmission.rateOverTime = !inBarn && hay > 0 ? (isSprinting ? hayFallParticleRateSprinting
-                                                                          : hayFallParticleRateNormal)
+        particleEmission.rateOverTime = !inBarn && hay > 0 && !isSprinting ? (isSprinting ? hayFallParticleRateSprinting
+                                                                                          : hayFallParticleRateNormal)
                                                            : 0;
     }
     void UpdateHayGainParticle()
@@ -99,7 +99,7 @@ public class PlayerMoveController : MonoBehaviour
             ScareCropEater(collision.GetComponent<CrowController>());
         else if (collision.CompareTag("Hay"))
         {
-            if (hay < 1 && !Input.GetKey(sprintKey))
+            if (hay < 1 && !isSprinting)
             {
                 inBarn = true;
                 hay += Time.deltaTime * hayBarnInc;
