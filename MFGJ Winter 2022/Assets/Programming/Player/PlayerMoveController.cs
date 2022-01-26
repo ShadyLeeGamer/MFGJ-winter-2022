@@ -7,12 +7,19 @@ public class PlayerMoveController : MonoBehaviour
     private Rigidbody2D RB;
     [SerializeField] private float walkSpeed = 5f, sprintSpeed;
     [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
+    Vector2 moveInput;
+    bool isSprinting;
     [SerializeField] float hayBarnInc, hayDec, haySprintDec;
     float hay = 1;
-    bool isSprinting;
-    Vector2 moveInput;
+    float hayGainParticleEmmissionRate;
+
     private Animator anim;
     private SpriteRenderer SR;
+
+    bool inBarn;
+    [SerializeField] ParticleSystem hayFallParticle, hayGainParticle;
+    [SerializeField] float hayFallParticleRateNormal, hayFallParticleRateSprinting;
+    [SerializeField] float hayGainParticleRateNormal;
 
     GameUI gameUI;
 
@@ -25,6 +32,7 @@ public class PlayerMoveController : MonoBehaviour
         SR = GetComponentInChildren<SpriteRenderer>();
 
         gameUI = GameUI.Instance;
+        hayGainParticleEmmissionRate = hayGainParticle.emission.rateOverTime.constant;
     }
 
     // Update is called once per frame
@@ -43,18 +51,20 @@ public class PlayerMoveController : MonoBehaviour
             {
                 hay -= Time.deltaTime * haySprintDec;
                 isSprinting = true;
-
             }
             else
                 isSprinting = false;
         }
-        else
+        else if (!inBarn)
         {
             isSprinting = false;
             hay -= Time.deltaTime * hayDec;
         }
         Mathf.Clamp01(hay);
         gameUI.SetPlayerStaminaBar(hay, 1);
+
+        UpdateHayFallParticle();
+        UpdateHayGainParticle();
     }
 
     void FixedUpdate()
@@ -63,6 +73,19 @@ public class PlayerMoveController : MonoBehaviour
         
         RB.MovePosition((Vector2)transform.position + moveInput);
         SR.sortingOrder = Mathf.CeilToInt(transform.position.y * 100) * -1;
+    }
+
+    void UpdateHayFallParticle()
+    {
+        ParticleSystem.EmissionModule particleEmission = hayFallParticle.emission;
+        particleEmission.rateOverTime = !inBarn && hay > 0 ? (isSprinting ? hayFallParticleRateSprinting
+                                                                          : hayFallParticleRateNormal)
+                                                           : 0;
+    }
+    void UpdateHayGainParticle()
+    {
+        ParticleSystem.EmissionModule particleEmission = hayGainParticle.emission;
+        particleEmission.rateOverTime = inBarn && hay < 1 ? hayGainParticleRateNormal : 0;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -78,11 +101,17 @@ public class PlayerMoveController : MonoBehaviour
         {
             if (hay < 1 && !Input.GetKey(sprintKey))
             {
+                inBarn = true;
                 hay += Time.deltaTime * hayBarnInc;
                 Mathf.Clamp01(hay);
                 gameUI.SetPlayerStaminaBar(hay, 1);
             }
         }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Hay"))
+            inBarn = false;
     }
 
     void ScareCropEater(CrowController cropEater)

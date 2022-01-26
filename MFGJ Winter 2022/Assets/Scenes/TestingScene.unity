@@ -584,21 +584,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1236434577747864860, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1236434579543071644, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1236434579543071644, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.518
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1236434579543071644, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.546875
       objectReference: {fileID: 0}
     - target: {fileID: 1236434579543071644, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -635,38 +631,6 @@ PrefabInstance:
     - target: {fileID: 1236434579543071645, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: hayDec
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: hayInc
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: sprintKey
-      value: 304
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: hayBarnInc
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: staminaDec
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: staminaInc
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: sprintSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-      propertyPath: haySprintDec
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
@@ -2110,19 +2074,6 @@ Transform:
   m_Father: {fileID: 2038689738}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1357317036 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1236434579543071645, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
-  m_PrefabInstance: {fileID: 391880007}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &1357317037
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357317036}
-  m_Enabled: 1
 --- !u!1 &1373543629
 GameObject:
   m_ObjectHideFlags: 0
