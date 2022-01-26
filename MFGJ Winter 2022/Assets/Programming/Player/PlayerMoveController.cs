@@ -7,15 +7,14 @@ public class PlayerMoveController : MonoBehaviour
     private Rigidbody2D RB;
     [SerializeField] private float walkSpeed = 5f, sprintSpeed;
     [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
-    [SerializeField, Range(0, 1)] float staminaDec, staminaInc;
-    float stamina = 1;
+    [SerializeField] float hayBarnInc, hayDec, haySprintDec;
+    float hay = 1;
     bool isSprinting;
     Vector2 moveInput;
     private Animator anim;
     private SpriteRenderer SR;
 
     GameUI gameUI;
-
 
     // Start is called before the first frame update
     void Start()
@@ -40,18 +39,22 @@ public class PlayerMoveController : MonoBehaviour
 
         if (Input.GetKey(sprintKey))
         {
-            if (stamina > 0 && moveInput != Vector2.zero)
+            if (hay > 0 && moveInput != Vector2.zero)
             {
-                stamina -= Time.deltaTime * staminaDec;
+                hay -= Time.deltaTime * haySprintDec;
                 isSprinting = true;
-                Mathf.Clamp01(stamina);
-                gameUI.SetPlayerStaminaBar(stamina, 1);
+
             }
             else
                 isSprinting = false;
         }
         else
+        {
             isSprinting = false;
+            hay -= Time.deltaTime * hayDec;
+        }
+        Mathf.Clamp01(hay);
+        gameUI.SetPlayerStaminaBar(hay, 1);
     }
 
     void FixedUpdate()
@@ -65,25 +68,27 @@ public class PlayerMoveController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Crow"))
-        {
-            collision.GetComponent<CrowController>().ScareCrow(transform.position);
-        }
+            ScareCropEater(collision.GetComponent<CrowController>());
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Crow"))
+            ScareCropEater(collision.GetComponent<CrowController>());
+        else if (collision.CompareTag("Hay"))
         {
-            collision.GetComponent<CrowController>().ScareCrow(transform.position);
-        }
-        if (collision.CompareTag("Hay"))
-        {
-            if (stamina < 1 && !Input.GetKey(sprintKey))
+            if (hay < 1 && !Input.GetKey(sprintKey))
             {
-                stamina += Time.deltaTime * staminaInc;
-                Mathf.Clamp01(stamina);
-                gameUI.SetPlayerStaminaBar(stamina, 1);
+                hay += Time.deltaTime * hayBarnInc;
+                Mathf.Clamp01(hay);
+                gameUI.SetPlayerStaminaBar(hay, 1);
             }
         }
+    }
+
+    void ScareCropEater(CrowController cropEater)
+    {
+        if (hay > 0)
+            cropEater.ScareCrow(transform.position);
     }
 }
 
