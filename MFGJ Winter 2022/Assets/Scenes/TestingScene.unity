@@ -14369,11 +14369,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1105528214797974802, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
       propertyPath: defaultVolume.Array.data[1]
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1105528214797974802, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
       propertyPath: defaultVolume.Array.data[2]
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1105528215232055884, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
       propertyPath: m_RootOrder
