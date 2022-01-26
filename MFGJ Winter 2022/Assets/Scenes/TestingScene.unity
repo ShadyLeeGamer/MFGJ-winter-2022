@@ -637,8 +637,20 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
+      propertyPath: hayDec
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
+      propertyPath: hayInc
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
       propertyPath: sprintKey
       value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
+      propertyPath: hayBarnInc
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
       propertyPath: staminaDec
@@ -651,6 +663,10 @@ PrefabInstance:
     - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
       propertyPath: sprintSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236434579543071646, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
+      propertyPath: haySprintDec
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead6fa153612c0d469b49b41578dbfc9, type: 3}
