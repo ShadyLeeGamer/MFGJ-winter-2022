@@ -78,14 +78,14 @@ public class PlayerMoveController : MonoBehaviour
     void UpdateHayFallParticle()
     {
         ParticleSystem.EmissionModule particleEmission = hayFallParticle.emission;
-        particleEmission.rateOverTime = !inBarn && hay > 0 && !isSprinting ? (isSprinting ? hayFallParticleRateSprinting
-                                                                                          : hayFallParticleRateNormal)
+        particleEmission.rateOverTime = !inBarn && hay > 0 ? (isSprinting ? hayFallParticleRateSprinting
+                                                                          : hayFallParticleRateNormal)
                                                            : 0;
     }
     void UpdateHayGainParticle()
     {
         ParticleSystem.EmissionModule particleEmission = hayGainParticle.emission;
-        particleEmission.rateOverTime = inBarn && hay < 1 ? hayGainParticleRateNormal : 0;
+        particleEmission.rateOverTime = inBarn && hay < 1 && !isSprinting ? hayGainParticleRateNormal : 0;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
