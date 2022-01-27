@@ -38,8 +38,12 @@ public class PlayerMoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
+        if (AliveCheck.alive)
+        {
+            moveInput.x = Input.GetAxisRaw("Horizontal");
+            moveInput.y = Input.GetAxisRaw("Vertical");
+        }
+       
 
         anim.SetFloat("X", moveInput.x);
         anim.SetFloat("Y", moveInput.y);
@@ -124,15 +128,12 @@ public class PlayerMoveController : MonoBehaviour
 
 public static class AliveCheck
 {
-    static bool alive = true;
+    public static bool alive { private set; get; } = true;
     public delegate void deathVoid();
     public static event deathVoid DeathTrigger;
 
 
-    public static bool TestForAlive()
-    {
-        return alive;
-    }
+    
 
     public static void changeAliveState(bool state)
     {

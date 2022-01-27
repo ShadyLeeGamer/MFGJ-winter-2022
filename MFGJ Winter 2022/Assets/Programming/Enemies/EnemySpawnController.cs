@@ -81,7 +81,7 @@ public class EnemySpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AliveCheck.TestForAlive() && inWave)
+        if (AliveCheck.alive && inWave)
         {
             if (timer <= 0)
             {
@@ -159,7 +159,7 @@ public class EnemySpawnController : MonoBehaviour
             yield return null;
         }
         //yield return new WaitForSeconds(5);
-        if (AliveCheck.TestForAlive())
+        if (AliveCheck.alive)
         {
             wave++;
             inWave = true;

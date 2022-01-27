@@ -131,8 +131,9 @@ public class CropController : MonoBehaviour
                 Destroy(currentWarningSign.gameObject);
                 currentWarningSign = null;
             }
-            killed?.Invoke();
+            
             EnemySpawnController.s.removePlant(this);
+            killed?.Invoke();
         }
         
     }

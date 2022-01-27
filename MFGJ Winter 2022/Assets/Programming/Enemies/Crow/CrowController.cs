@@ -117,8 +117,16 @@ public class CrowController : MonoBehaviour
 
     void killedPlant()
     {
-        GetNewTarget(currentController.getNewTarget());
-        ScareCrow(targetPosition.position);
+        if (AliveCheck.alive)
+        {
+            GetNewTarget(currentController.getNewTarget());
+            ScareCrow(targetPosition.position);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
     
     void scaredCrow()
