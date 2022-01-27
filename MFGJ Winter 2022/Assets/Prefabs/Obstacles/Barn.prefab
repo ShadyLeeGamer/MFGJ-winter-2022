@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2877432141846780026}
   - component: {fileID: 5466614003937179085}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Shop zone
   m_TagString: Hay
   m_Icon: {fileID: 0}
