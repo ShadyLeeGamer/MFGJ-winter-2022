@@ -117,8 +117,16 @@ public class CrowController : MonoBehaviour
 
     void killedPlant()
     {
-        GetNewTarget(currentController.getNewTarget());
-        ScareCrow(targetPosition.position);
+        if (AliveCheck.alive)
+        {
+            GetNewTarget(currentController.getNewTarget());
+            ScareCrow(targetPosition.position);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
     
     void scaredCrow()
@@ -129,7 +137,7 @@ public class CrowController : MonoBehaviour
         
         
 
-        transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, movePosition, fleespeed * Time.deltaTime);
         updateAnimator((movePosition - transform.position).normalized, false);
 
         if (_braveness <= 0)

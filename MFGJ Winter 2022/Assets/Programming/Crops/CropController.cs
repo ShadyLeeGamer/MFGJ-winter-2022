@@ -48,6 +48,15 @@ public class CropController : MonoBehaviour
         
     }
 
+    public void revivePlant()
+    {
+        _health = health;
+        index = 0;
+        updateHealth();
+        alive = true;
+    }
+
+
     public void Update()
     {
         if (alive)
@@ -122,8 +131,9 @@ public class CropController : MonoBehaviour
                 Destroy(currentWarningSign.gameObject);
                 currentWarningSign = null;
             }
-            killed?.Invoke();
+            
             EnemySpawnController.s.removePlant(this);
+            killed?.Invoke();
         }
         
     }
