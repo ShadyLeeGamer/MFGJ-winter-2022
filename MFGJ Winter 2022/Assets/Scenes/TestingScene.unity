@@ -14707,6 +14707,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1765078187128025107, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
+      propertyPath: m_text
+      value: All your Crops were eaten!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267808895460962226, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
+      propertyPath: m_text
+      value: You earned X coins
+      objectReference: {fileID: 0}
     - target: {fileID: 3375482637084535558, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -14823,9 +14831,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3842458824498683665, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
+      propertyPath: m_text
+      value: Game Over
+      objectReference: {fileID: 0}
     - target: {fileID: 4918290512063933675, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
       propertyPath: m_text
       value: Description
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196732684514377374, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
+      propertyPath: m_text
+      value: Try Again
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}

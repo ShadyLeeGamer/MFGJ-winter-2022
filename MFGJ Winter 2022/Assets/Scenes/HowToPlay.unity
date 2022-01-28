@@ -466,8 +466,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "* Protect your crops! Scare off pesky Crows & Cows! \n\n* Be careful not
     to lose all of your Hay! Get more Hay from the Barn!\n\n* Clear the Wave & ring
-    the Bell!\n\n* Earn Crop Seeds at the end of the Wave!\n\n* Spend Crop Seeds
-    at the Shop to replenish your Crops!"
+    the Bell!\n\n* Earn Coins at the end of the Wave!\n\n* Spend Coins at the Shop
+    to replenish your Crops!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
