@@ -17,10 +17,11 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private float spawnsPSec;
     float timer;
 
-    bool inWave;
+    public bool inWave;
+    public bool waveOver;
 
     public int wave { get; private set;}
-    int birdSpawnsThisWave, cowSpawnsThisWave;
+    public int birdSpawnsThisWave, cowSpawnsThisWave;
 
     [Header("waveBalancing")]
     [SerializeField] AnimationCurve birdsAmountScaling;
@@ -41,7 +42,6 @@ public class EnemySpawnController : MonoBehaviour
     {
         s = this;
     }
-
     #endregion
 
     // Start is called before the first frame update
@@ -54,6 +54,7 @@ public class EnemySpawnController : MonoBehaviour
         }
         
         inWave = true;
+        waveOver = false;
         birdSpawnsThisWave = birdsPerWave;
         cowSpawnsThisWave = cowsPerWave;
         wave++;
@@ -71,17 +72,12 @@ public class EnemySpawnController : MonoBehaviour
         gameUI.SetCropsRemainingBar(activeCrops.Count, cropObjects.Length);
         gameUI.SetCropEatersRemainingBar(enemiesAlive, totalEnemies);
         gameUI.SetCurrentWaveDisplay(wave);
-    }
-
-
-    
-
-    
+    }    
 
     // Update is called once per frame
     void Update()
     {
-        if (AliveCheck.alive && inWave)
+        if (AliveCheck.alive && inWave && !waveOver)
         {
             if (timer <= 0)
             {
@@ -141,12 +137,9 @@ public class EnemySpawnController : MonoBehaviour
         }
     }
 
-
-    void NextWave()
+    public void NextWave()
     {
         inWave = false;
-        
-        
 
         spawnsPSec = spawnRateScaling.Evaluate(wave);
         StartCoroutine(waveTimer());
@@ -172,7 +165,6 @@ public class EnemySpawnController : MonoBehaviour
         }
         
     }
-
 
     void AddCoins()
     {
@@ -207,11 +199,8 @@ public class EnemySpawnController : MonoBehaviour
         }
     }
 
-
     public void RevivePlant()
     {
-        
-        
         int target = Random.Range(0, deadCrops.Count);
         var plant = deadCrops[target];
         Debug.Log(plant);
@@ -221,10 +210,8 @@ public class EnemySpawnController : MonoBehaviour
         setUI();
     }
 
-
     void SpawnBird(GameObject objectToSpawn)
     {
-        
         var spawnPisition = CalculateSpawnPosition();
         int target = Random.Range(0, activeCrops.Count);
         var bird = Instantiate(objectToSpawn, spawnPisition, Quaternion.Euler(Vector3.zero));
@@ -236,6 +223,9 @@ public class EnemySpawnController : MonoBehaviour
     {
         enemiesAlive--;
         setUI();
+
+        if (enemiesAlive <= 0)
+            waveOver = true;
     }
 
     public CropController getNewTarget()
@@ -276,5 +266,4 @@ public class EnemySpawnController : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position, borders);
     }
-
 }

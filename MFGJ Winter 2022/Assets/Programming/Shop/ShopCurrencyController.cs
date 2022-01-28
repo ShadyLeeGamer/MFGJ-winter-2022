@@ -28,7 +28,6 @@ public class ShopCurrencyController : MonoBehaviour
     {
         coins += amount;
         ui.UpdateCoinCount(coins);
-        Debug.Log(amount);
     }
 
     public bool purchase(int cost)
@@ -44,7 +43,4 @@ public class ShopCurrencyController : MonoBehaviour
             return false;
         }
     }
-
-
-    
 }

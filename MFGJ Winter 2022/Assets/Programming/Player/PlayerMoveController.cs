@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerMoveController : MonoBehaviour
 {
+    public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode startWaveKey = KeyCode.Z;
     private Rigidbody2D RB;
     [SerializeField] private float walkSpeed = 5f, sprintSpeed;
-    [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
     Vector2 moveInput;
     bool isSprinting;
     [SerializeField] float hayBarnInc, hayDec, haySprintDec;
@@ -23,7 +24,13 @@ public class PlayerMoveController : MonoBehaviour
 
     GameUI gameUI;
 
-    // Start is called before the first frame update
+    public static PlayerMoveController Instance { get; private set; }
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
@@ -35,7 +42,6 @@ public class PlayerMoveController : MonoBehaviour
         hayGainParticleEmmissionRate = hayGainParticle.emission.rateOverTime.constant;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (AliveCheck.alive)
@@ -101,7 +107,7 @@ public class PlayerMoveController : MonoBehaviour
     {
         if (collision.CompareTag("Crow"))
             ScareCropEater(collision.GetComponent<CrowController>());
-        else if (collision.CompareTag("Hay"))
+        if (collision.CompareTag("Hay"))
         {
             if (hay < 1 && !isSprinting)
             {
@@ -110,6 +116,10 @@ public class PlayerMoveController : MonoBehaviour
                 Mathf.Clamp01(hay);
                 gameUI.SetPlayerStaminaBar(hay, 1);
             }
+        }
+        if (collision.GetComponent<FarmBell>())
+        {
+            collision.GetComponent<FarmBell>().Ring();
         }
     }
     public void OnTriggerExit2D(Collider2D collision)

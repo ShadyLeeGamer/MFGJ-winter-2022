@@ -8,6 +8,8 @@ TagManager:
   - Crop
   - UI
   - Hay
+  - Shop
+  - Start Wave
   layers:
   - Default
   - TransparentFX
