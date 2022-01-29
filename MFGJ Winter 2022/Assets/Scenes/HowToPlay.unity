@@ -359,8 +359,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2016925992}
         m_TargetAssemblyTypeName: BasicUIFunctions, Assembly-CSharp
-        m_MethodName: LoadSceneAtIndex
-        m_Mode: 3
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

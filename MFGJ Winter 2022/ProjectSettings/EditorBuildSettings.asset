@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HowToPlay.unity
     guid: e87334b561931e449891c3421819101e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/IntroCutScene.unity
     guid: 031a6a2ca656ec84bac4d37cd3d98218
   - enabled: 1
