@@ -6,8 +6,8 @@ public class EnemySpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject bird;
     [SerializeField] private GameObject Cow;
-    [SerializeField] private int birdsPerWave = 5;
-    [SerializeField] private int cowsPerWave = 1;
+    [SerializeField] private GameObject birdFast;
+    
     private GameObject[] cropObjects;
     private int enemiesAlive;
     private int totalEnemies;
@@ -21,11 +21,12 @@ public class EnemySpawnController : MonoBehaviour
     public bool waveOver;
 
     public int wave { get; private set;}
-    public int birdSpawnsThisWave, cowSpawnsThisWave;
+    public int birdSpawnsThisWave, cowSpawnsThisWave, birdSpeedThisWave;
 
     [Header("waveBalancing")]
     [SerializeField] AnimationCurve birdsAmountScaling;
     [SerializeField] AnimationCurve cowAmountScaling;
+    [SerializeField] AnimationCurve birdsFastAmountScaling;
     [SerializeField] AnimationCurve spawnRateScaling;
 
     [SerializeField] Vector2 borders;
@@ -52,12 +53,12 @@ public class EnemySpawnController : MonoBehaviour
         {
             activeCrops.Add(crop.GetComponent<CropController>());
         }
-        
+        wave++;
         inWave = true;
         waveOver = false;
-        birdSpawnsThisWave = birdsPerWave;
-        cowSpawnsThisWave = cowsPerWave;
-        wave++;
+        birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
+        cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
+        
         totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave;
         enemiesAlive = totalEnemies;
         audioStation = AudioStation.Instance;
@@ -94,26 +95,57 @@ public class EnemySpawnController : MonoBehaviour
 
     void spawnEnemy()
     {
-        int i = Random.Range(0, 2);
-        if(i == 1)
+        int i = Random.Range(0, 3);
+
+        switch (i)
         {
-            if (birdSpawnsThisWave > 0)
+            case 1:
+                SpawnBird();
+                break;
+            case 2:
+                SpawnCow();
+                break;
+            case 3:
+                SpawnBirdSpeed();
+                break;
+        }
+    }
+
+    void SpawnBird()
+    {
+        if (birdSpawnsThisWave > 0)
+        {
+            birdSpawnsThisWave--;
+            SpawnBird(bird);
+        }
+        else
+        {
+            if (cowSpawnsThisWave > 0)
             {
-                birdSpawnsThisWave--;
-                SpawnBird(bird);
+                cowSpawnsThisWave--;
+                SpawnBird(Cow);
             }
             else
             {
-                if(cowSpawnsThisWave > 0)
+                if (birdSpeedThisWave > 0)
                 {
-                    cowSpawnsThisWave--;
-                    SpawnBird(Cow);
+                    birdSpeedThisWave--;
+                    SpawnBird(birdFast);
                 }
                 else
                 {
                     NextWave();
                 }
             }
+        }
+    }
+
+    void SpawnBirdSpeed()
+    {
+        if (birdSpeedThisWave > 0)
+        {
+            birdSpeedThisWave--;
+            SpawnBird(birdFast);
         }
         else
         {
@@ -137,13 +169,54 @@ public class EnemySpawnController : MonoBehaviour
         }
     }
 
+    void SpawnCow()
+    {
+        if (cowSpawnsThisWave > 0)
+        {
+            cowSpawnsThisWave--;
+            SpawnBird(Cow);
+        }
+        else
+        {
+            if (birdSpawnsThisWave > 0)
+            {
+                birdSpawnsThisWave--;
+                SpawnBird(bird);
+            }
+            else
+            {
+                if (birdSpeedThisWave > 0)
+                {
+                    birdSpeedThisWave--;
+                    SpawnBird(birdFast);
+                }
+                else
+                {
+                    NextWave();
+                }
+            }
+        }
+    }
+
+
+
     public void NextWave()
     {
         inWave = false;
-
+        resetPlants();
         spawnsPSec = spawnRateScaling.Evaluate(wave);
         StartCoroutine(waveTimer());
     }
+
+
+    void resetPlants()
+    {
+        foreach (var crop in activeCrops)
+        {
+            crop.ClearList();
+        }
+    }
+
 
     private IEnumerator waveTimer()
     {
@@ -159,7 +232,8 @@ public class EnemySpawnController : MonoBehaviour
             AddCoins();
             birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
             cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
-            totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave;
+            birdSpeedThisWave = Mathf.FloorToInt(birdsFastAmountScaling.Evaluate(wave));
+            totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave + birdSpeedThisWave;
             enemiesAlive = totalEnemies;
             setUI();
         }

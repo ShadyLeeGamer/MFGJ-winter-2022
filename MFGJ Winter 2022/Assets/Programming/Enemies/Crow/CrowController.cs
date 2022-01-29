@@ -69,6 +69,9 @@ public class CrowController : MonoBehaviour
         
     }
 
+   
+
+
     public void startCrow(CropController newtarget, EnemySpawnController controller)
     {
         target = newtarget;
@@ -90,7 +93,7 @@ public class CrowController : MonoBehaviour
         target = newtarget;
         if (target != null)
         {
-           
+            
             target.killed += killedPlant;
             targetPosition = target.transform;
             state = crowState.moving;
@@ -117,10 +120,12 @@ public class CrowController : MonoBehaviour
 
     void killedPlant()
     {
+        target.killed -= killedPlant;
         if (AliveCheck.alive)
         {
-            GetNewTarget(currentController.getNewTarget());
+            
             ScareCrow(targetPosition.position);
+            GetNewTarget(currentController.getNewTarget());
         }
         else
         {
@@ -239,12 +244,19 @@ public class CrowController : MonoBehaviour
             }
             else
             {
-                if(transform.position == obstacleAvoidanceList[0])
+                if(obstacleAvoidanceList.Count > 0)
                 {
-                    obstacleAvoidanceList.RemoveAt(0);
-                    if(obstacleAvoidanceList.Count <= 0)
+                    if (transform.position == obstacleAvoidanceList[0])
                     {
-                        obstacleAvoidance = false;
+                        obstacleAvoidanceList.RemoveAt(0);
+                        if (obstacleAvoidanceList.Count <= 0)
+                        {
+                            obstacleAvoidance = false;
+                        }
+                        else
+                        {
+                            movetarget = obstacleAvoidanceList[0];
+                        }
                     }
                     else
                     {
@@ -253,8 +265,9 @@ public class CrowController : MonoBehaviour
                 }
                 else
                 {
-                    movetarget = obstacleAvoidanceList[0];
+                    obstacleAvoidance = false;
                 }
+                
             }
             
         }

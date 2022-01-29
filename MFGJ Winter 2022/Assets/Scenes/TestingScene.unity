@@ -14694,6 +14694,82 @@ PrefabInstance:
       propertyPath: gameOverTrack
       value: 
       objectReference: {fileID: 8300000, guid: 202672669d27cf84f8c7303f5730d53b, type: 3}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[1].time
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[2].time
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[3].time
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[2].value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[3].value
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[2].inSlope
+      value: 0.4188482
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[2].outSlope
+      value: 0.4188482
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[2].tangentMode
+      value: 136
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[3].tangentMode
+      value: 136
+      objectReference: {fileID: 0}
     - target: {fileID: 6040606236078279854, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
       propertyPath: m_Name
       value: GameMaster
@@ -14733,7 +14809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 389045284189318142, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 443861088100368940, guid: af7cf0e649b690a4ab63132d5833ff81, type: 3}
       propertyPath: m_fontColor.b

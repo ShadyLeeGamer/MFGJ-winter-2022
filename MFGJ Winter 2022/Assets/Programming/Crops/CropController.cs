@@ -52,6 +52,7 @@ public class CropController : MonoBehaviour
     {
         _health = health;
         index = 0;
+        killed = null;
         updateHealth();
         alive = true;
     }
@@ -122,7 +123,7 @@ public class CropController : MonoBehaviour
             }
         }
 
-        if (_health < 0)
+        if (_health <= 0)
         {
             alive = false;
             if (currentWarningSign != null)
@@ -136,6 +137,11 @@ public class CropController : MonoBehaviour
             killed?.Invoke();
         }
         
+    }
+
+    public void ClearList()
+    {
+        killed = null;
     }
 
 
@@ -164,7 +170,7 @@ public class CropController : MonoBehaviour
         image.fillAmount = currentPercentage;
         image.color = healthcolors.Evaluate(currentPercentage);
 
-        if (index < lifeSprites.Length + 1)
+        if (index < lifeSprites.Length)
         {
             if ((lifeSprites[index + 1].percentage) > currentPercentage)
             {

@@ -46,9 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bird: {fileID: 8884646957721075859, guid: ca47ba90a19be9a4ab8be86957784366, type: 3}
   Cow: {fileID: 8884646957721075859, guid: fb367479900cc64448a211e966f4a11c, type: 3}
-  birdsPerWave: 5
-  cowsPerWave: 1
+  birdFast: {fileID: 8884646957721075859, guid: f5233b350335cf447b7f59d13f369115, type: 3}
   spawnsPSec: 0.5
+  inWave: 0
+  waveOver: 0
+  birdSpawnsThisWave: 0
+  cowSpawnsThisWave: 0
+  birdSpeedThisWave: 0
   birdsAmountScaling:
     serializedVersion: 2
     m_Curve:
@@ -79,6 +83,30 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 50
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  birdsFastAmountScaling:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 5
+      value: 10
       inSlope: 0
       outSlope: 0
       tangentMode: 136
