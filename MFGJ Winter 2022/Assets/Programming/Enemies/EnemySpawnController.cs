@@ -206,6 +206,7 @@ public class EnemySpawnController : MonoBehaviour
     {
         inWave = false;
         resetPlants();
+        AddCoins();
         spawnsPSec = spawnRateScaling.Evaluate(wave);
         StartCoroutine(waveTimer());
     }
@@ -232,7 +233,7 @@ public class EnemySpawnController : MonoBehaviour
             print(wave);
             wave++;
             inWave = true;
-            AddCoins();
+            
             birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
             cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
             birdSpeedThisWave = Mathf.FloorToInt(birdsFastAmountScaling.Evaluate(wave));
