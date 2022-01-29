@@ -37,6 +37,8 @@ public class EnemySpawnController : MonoBehaviour
 
     GameUI gameUI;
 
+    [SerializeField] FarmBell farmBell;
+
     #region singleton
     public static EnemySpawnController s;
     private void Awake()
@@ -220,13 +222,14 @@ public class EnemySpawnController : MonoBehaviour
 
     private IEnumerator waveTimer()
     {
-        while(enemiesAlive > 0)
+        while(enemiesAlive > 0 || waveOver)
         {
             yield return null;
         }
         //yield return new WaitForSeconds(5);
         if (AliveCheck.alive)
         {
+            print(wave);
             wave++;
             inWave = true;
             AddCoins();
@@ -237,7 +240,6 @@ public class EnemySpawnController : MonoBehaviour
             enemiesAlive = totalEnemies;
             setUI();
         }
-        
     }
 
     void AddCoins()
@@ -254,7 +256,6 @@ public class EnemySpawnController : MonoBehaviour
 
         if (activeCrops.Count == 0)
         {
-            Debug.Log("lost");
             AliveCheck.changeAliveState(false);
 
             audioStation.StartNewMusicPlayer(gameOverTrack, false);
@@ -299,7 +300,13 @@ public class EnemySpawnController : MonoBehaviour
         setUI();
 
         if (enemiesAlive <= 0)
-            waveOver = true;
+            WaveOver();
+    }
+
+    void WaveOver()
+    {
+        waveOver = true;
+        farmBell.SetTextActive(true);
     }
 
     public CropController getNewTarget()
