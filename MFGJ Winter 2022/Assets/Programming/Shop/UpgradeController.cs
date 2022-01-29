@@ -14,12 +14,17 @@ public class UpgradeController : MonoBehaviour
     [SerializeField] int reviveUIInt;
     int reviveLevel;
     KeyCode reviveInput = KeyCode.Z;
+    [SerializeField] AudioClip[] gfSFX;
+    [SerializeField] AudioClip gfSFXRare;
+    AudioStation audioStation;
 
+    bool shopIsOpen;
 
     private void Start()
     {
         shop = ShopCurrencyController.instance;
         ui = ShopUIController.instance;
+        audioStation = AudioStation.Instance;
     }
 
 
@@ -60,14 +65,23 @@ public class UpgradeController : MonoBehaviour
     #region opening and closing store
     void OpenStore()
     {
+        if (shopIsOpen)
+            return;
+
         storeActive = true;
         ui.ChangeShopUI(storeActive);
+        if (Random.value < 0.1)
+            audioStation.StartNewSFXPlayer(gfSFXRare, default, null, 1, 1, true);
+        else
+            audioStation.StartNewRandomSFXPlayer(gfSFX, default, null, 1, 1, true);
+        shopIsOpen = true;
     }
 
     void CloseStore()
     {
         storeActive = false;
         ui.ChangeShopUI(storeActive);
+        shopIsOpen = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
