@@ -49,8 +49,8 @@ MonoBehaviour:
   - Music
   - SFX
   defaultVolume:
-  - -0
-  - -15
+  - 0
+  - -5
   - 0
 --- !u!1 &1105528214919619047
 GameObject:

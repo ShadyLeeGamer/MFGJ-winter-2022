@@ -118,9 +118,7 @@ public class PlayerMoveController : MonoBehaviour
             }
         }
         if (collision.GetComponent<FarmBell>())
-        {
             collision.GetComponent<FarmBell>().Ring();
-        }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
