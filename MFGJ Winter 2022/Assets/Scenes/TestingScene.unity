@@ -25576,6 +25576,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   reviveUIInt: 0
+  gfSFX:
+  - {fileID: 8300000, guid: 1d0e6d9ca4f9703448e9c8546eabbcdd, type: 3}
+  - {fileID: 8300000, guid: 980fce10f5c0f9846b09759f6cb4c2c1, type: 3}
+  - {fileID: 8300000, guid: 62a174d1f970e814faade7a1d50caab7, type: 3}
+  - {fileID: 8300000, guid: 5f380b907bf3fe447b958ea2dbf1b3ad, type: 3}
+  gfSFXRare: {fileID: 8300000, guid: 8c36bfe726246e642bdd2dc650de96a1, type: 3}
 --- !u!1001 &2125374525
 PrefabInstance:
   m_ObjectHideFlags: 0
