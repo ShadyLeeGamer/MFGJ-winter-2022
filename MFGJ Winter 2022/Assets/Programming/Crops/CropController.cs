@@ -169,31 +169,34 @@ public class CropController : MonoBehaviour
         
         image.fillAmount = currentPercentage;
         image.color = healthcolors.Evaluate(currentPercentage);
-
-        if (index < lifeSprites.Length)
+        if (alive)
         {
-            if ((lifeSprites[index + 1].percentage) > currentPercentage)
+            if (index < lifeSprites.Length)
             {
-                index++;
-                if (index >= lifeSprites.Length)
+                if ((lifeSprites[index + 1].percentage) > currentPercentage)
                 {
-                    index--;
-                }
-            }
-            else
-            {
-                if (index > 0)
-                {
-                    if (lifeSprites[index - 1].percentage < currentPercentage)
+                    index++;
+                    if (index >= lifeSprites.Length)
                     {
                         index--;
                     }
                 }
-
+                else
+                {
+                    if (index > 0)
+                    {
+                        if (lifeSprites[index - 1].percentage < currentPercentage)
+                        {
+                            index--;
+                        }
+                    }
+                    
+                }
             }
+
+            SR.sprite = lifeSprites[index].sprite;
         }
         
-        SR.sprite = lifeSprites[index].sprite;
     }
 }
 

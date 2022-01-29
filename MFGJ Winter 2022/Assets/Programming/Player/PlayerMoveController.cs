@@ -13,7 +13,7 @@ public class PlayerMoveController : MonoBehaviour
     [SerializeField] float hayBarnInc, hayDec, haySprintDec;
     float hay = 1;
     float hayGainParticleEmmissionRate;
-
+    bool pressedNextWave;
     private Animator anim;
     private SpriteRenderer SR;
 
@@ -72,6 +72,14 @@ public class PlayerMoveController : MonoBehaviour
             isSprinting = false;
             hay -= Time.deltaTime * hayDec;
         }
+        if (Input.GetKeyDown(startWaveKey))
+        {
+            pressedNextWave = true;
+        }
+        else
+        {
+            pressedNextWave = false;
+        }
         Mathf.Clamp01(hay);
         gameUI.SetPlayerStaminaBar(hay, 1);
 
@@ -128,7 +136,7 @@ public class PlayerMoveController : MonoBehaviour
                 gameUI.SetPlayerStaminaBar(hay, 1);
             }
         }
-        if (collision.GetComponent<FarmBell>())
+        if (collision.GetComponent<FarmBell>() && pressedNextWave)
             collision.GetComponent<FarmBell>().Ring();
     }
     public void OnTriggerExit2D(Collider2D collision)

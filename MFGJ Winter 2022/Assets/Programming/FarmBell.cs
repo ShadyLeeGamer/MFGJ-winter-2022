@@ -23,7 +23,7 @@ public class FarmBell : MonoBehaviour
 
     public void Ring()
     {
-        if (EnemySpawnController.s.waveOver == true && Input.GetKeyDown(PlayerMoveController.Instance.startWaveKey))
+        if (EnemySpawnController.s.waveOver == true)
         {
             EnemySpawnController.s.waveOver = false;
             animator.Play("Farm Bell Ring");
