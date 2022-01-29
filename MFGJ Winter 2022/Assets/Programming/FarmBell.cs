@@ -5,6 +5,7 @@ using UnityEngine;
 public class FarmBell : MonoBehaviour
 {
     [SerializeField] AudioClip ringSFX;
+    [SerializeField] GameObject text;
 
     Animator animator;
 
@@ -27,6 +28,12 @@ public class FarmBell : MonoBehaviour
             EnemySpawnController.s.waveOver = false;
             animator.Play("Farm Bell Ring");
             audioStation.StartNewSFXPlayer(ringSFX, default, null, 1, 1, true);
+            SetTextActive(false);
         }
+    }
+
+    public void SetTextActive(bool value)
+    {
+        text.SetActive(value);
     }
 }

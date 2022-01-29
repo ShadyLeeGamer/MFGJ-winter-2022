@@ -24,6 +24,9 @@ public class PlayerMoveController : MonoBehaviour
 
     GameUI gameUI;
 
+    [SerializeField] Color haylessColour;
+    [SerializeField] GameObject scareCircle;
+
     public static PlayerMoveController Instance { get; private set; }
 
     void Awake()
@@ -49,7 +52,6 @@ public class PlayerMoveController : MonoBehaviour
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.y = Input.GetAxisRaw("Vertical");
         }
-       
 
         anim.SetFloat("X", moveInput.x);
         anim.SetFloat("Y", moveInput.y);
@@ -75,6 +77,8 @@ public class PlayerMoveController : MonoBehaviour
 
         UpdateHayFallParticle();
         UpdateHayGainParticle();
+
+        UpdateColour();
     }
 
     void FixedUpdate()
@@ -96,6 +100,13 @@ public class PlayerMoveController : MonoBehaviour
     {
         ParticleSystem.EmissionModule particleEmission = hayGainParticle.emission;
         particleEmission.rateOverTime = inBarn && hay < 1 && !isSprinting ? hayGainParticleRateNormal : 0;
+    }
+
+    void UpdateColour()
+    {
+        SR.color = Color.Lerp(haylessColour, Color.white, hay);
+
+        scareCircle.SetActive(hay > 0);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
