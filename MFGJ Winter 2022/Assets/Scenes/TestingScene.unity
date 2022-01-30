@@ -24681,6 +24681,38 @@ PrefabInstance:
       propertyPath: gameOverTrack
       value: 
       objectReference: {fileID: 8300000, guid: 202672669d27cf84f8c7303f5730d53b, type: 3}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: cowAmountScaling.m_Curve.Array.data[0].time
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: spawnRateScaling.m_Curve.Array.data[1].time
+      value: 11.389993
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: spawnRateScaling.m_Curve.Array.data[1].value
+      value: 0.6497536
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: spawnRateScaling.m_Curve.Array.data[1].inSlope
+      value: 0.0048637493
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: spawnRateScaling.m_Curve.Array.data[1].outSlope
+      value: 0.0048637493
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: spawnRateScaling.m_Curve.Array.data[1].outWeight
+      value: 0.17459482
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[0].time
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040606236078279841, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
+      propertyPath: birdsFastAmountScaling.m_Curve.Array.data[0].value
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6040606236078279854, guid: 4c9b0c9679b2ede4c83fac940298046b, type: 3}
       propertyPath: m_Name
       value: GameMaster

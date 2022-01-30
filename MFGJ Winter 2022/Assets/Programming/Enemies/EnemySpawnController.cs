@@ -26,7 +26,7 @@ public class EnemySpawnController : MonoBehaviour
     [Header("waveBalancing")]
     [SerializeField] AnimationCurve birdsAmountScaling;
     [SerializeField] AnimationCurve cowAmountScaling;
-    [SerializeField] AnimationCurve birdsFastAmountScaling;
+    //[SerializeField] AnimationCurve birdsFastAmountScaling;
     [SerializeField] AnimationCurve spawnRateScaling;
 
     [SerializeField] Vector2 borders;
@@ -59,7 +59,7 @@ public class EnemySpawnController : MonoBehaviour
         inWave = true;
         waveOver = false;
         birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
-        cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
+        //cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
         
         totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave;
         enemiesAlive = totalEnemies;
@@ -97,7 +97,7 @@ public class EnemySpawnController : MonoBehaviour
 
     void spawnEnemy()
     {
-        int i = Random.Range(0, 3);
+        int i = Random.Range(0, 2);
 
         switch (i)
         {
@@ -107,9 +107,9 @@ public class EnemySpawnController : MonoBehaviour
             case 2:
                 SpawnCow();
                 break;
-            case 3:
+            /*case 3:
                 SpawnBirdSpeed();
-                break;
+                break;*/
         }
     }
 
@@ -232,10 +232,9 @@ public class EnemySpawnController : MonoBehaviour
             print(wave);
             wave++;
             inWave = true;
-            AddCoins();
             birdSpawnsThisWave = Mathf.FloorToInt(birdsAmountScaling.Evaluate(wave));
             cowSpawnsThisWave = Mathf.FloorToInt(cowAmountScaling.Evaluate(wave));
-            birdSpeedThisWave = Mathf.FloorToInt(birdsFastAmountScaling.Evaluate(wave));
+           // birdSpeedThisWave = Mathf.FloorToInt(birdsFastAmountScaling.Evaluate(wave));
             totalEnemies = birdSpawnsThisWave + cowSpawnsThisWave + birdSpeedThisWave;
             enemiesAlive = totalEnemies;
             setUI();
@@ -306,6 +305,7 @@ public class EnemySpawnController : MonoBehaviour
     void WaveOver()
     {
         waveOver = true;
+        AddCoins();
         farmBell.SetTextActive(true);
     }
 
