@@ -1642,10 +1642,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Persistant Object
       objectReference: {fileID: 0}
-    - target: {fileID: 3682351394871111428, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
-      propertyPath: defaultVolume.Array.data[1]
-      value: -0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cd93501493057a4292e3a5033eb5e32, type: 3}
 --- !u!1 &1084758400

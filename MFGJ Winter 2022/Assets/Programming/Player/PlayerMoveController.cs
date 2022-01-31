@@ -29,6 +29,16 @@ public class PlayerMoveController : MonoBehaviour
 
     public static PlayerMoveController Instance { get; private set; }
 
+    PersistentData persistentData;
+
+    Joystick joystick;
+    public bool sprintMobileButtonPress, interactMobileButtonPress;
+
+    public bool SprintInput => Input.GetKey(sprintKey) || sprintMobileButtonPress;
+    public bool InteractInput => Input.GetKeyDown(startWaveKey) || interactMobileButtonPress;
+
+    bool canRingFarmBell, canBuy;
+
     void Awake()
     {
         Instance = this;
@@ -43,6 +53,10 @@ public class PlayerMoveController : MonoBehaviour
 
         gameUI = GameUI.Instance;
         hayGainParticleEmmissionRate = hayGainParticle.emission.rateOverTime.constant;
+
+        persistentData = PersistentData.Instance;
+
+        joystick = Joystick.Instance;
     }
 
     void Update()
@@ -51,13 +65,20 @@ public class PlayerMoveController : MonoBehaviour
         {
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.y = Input.GetAxisRaw("Vertical");
+            if (joystick)
+            {
+                moveInput.x += joystick.Horizontal;
+                moveInput.y += joystick.Vertical;
+                Mathf.Clamp01(moveInput.x);
+                Mathf.Clamp01(moveInput.y);
+            }
         }
 
         anim.SetFloat("X", moveInput.x);
         anim.SetFloat("Y", moveInput.y);
         moveInput = moveInput.normalized;
 
-        if (Input.GetKey(sprintKey))
+        if (SprintInput)
         {
             if (hay > 0 && moveInput != Vector2.zero)
             {
@@ -72,9 +93,10 @@ public class PlayerMoveController : MonoBehaviour
             isSprinting = false;
             hay -= Time.deltaTime * hayDec;
         }
-        if (Input.GetKeyDown(startWaveKey))
+        if (InteractInput)
         {
             pressedNextWave = true;
+
         }
         else
         {
@@ -87,6 +109,11 @@ public class PlayerMoveController : MonoBehaviour
         UpdateHayGainParticle();
 
         UpdateColour();
+    }
+
+    void LateUpdate()
+    {
+        interactMobileButtonPress = false;
     }
 
     void FixedUpdate()
@@ -149,6 +176,26 @@ public class PlayerMoveController : MonoBehaviour
     {
         if (hay > 0)
             cropEater.ScareCrow(transform.position);
+    }
+
+    public void SprintMobileButtonHold()
+    {
+        sprintMobileButtonPress = true;
+    }
+
+    public void SprintMobileButtonRelease()
+    {
+        sprintMobileButtonPress = false;
+    }
+
+    public void InteractMobileButtonTap()
+    {
+        interactMobileButtonPress = true;
+    }
+
+    public void InteractMobileButtonRelease()
+    {
+        interactMobileButtonPress = false;
     }
 }
 

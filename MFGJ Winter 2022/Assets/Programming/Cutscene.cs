@@ -15,6 +15,7 @@ public class Cutscene : MonoBehaviour
 
     void Start()
     {
+        cutscenePlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "introcutscene.mp4");
         StartCoroutine(CutsceneTransitionToGame());
     }
 

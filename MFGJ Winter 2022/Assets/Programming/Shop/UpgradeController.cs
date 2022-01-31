@@ -20,11 +20,14 @@ public class UpgradeController : MonoBehaviour
 
     bool shopIsOpen;
 
+    PlayerMoveController player;
+
     private void Start()
     {
         shop = ShopCurrencyController.instance;
         ui = ShopUIController.instance;
         audioStation = AudioStation.Instance;
+        player = PlayerMoveController.Instance;
     }
 
 
@@ -33,7 +36,7 @@ public class UpgradeController : MonoBehaviour
         if (storeActive)
         {
             
-            if (Input.GetKeyDown(reviveInput))
+            if (player.InteractInput)
             {
                 RevivePlant();
             }
