@@ -54,7 +54,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         persistentData = PersistentData.Instance;
 #if !UNITY_EDITOR
         if (!persistentData.MobileController)
-            transform.gameObject.SetActive(false);
+            transform.parent.gameObject.SetActive(false);
 #endif
         HandleRange = handleRange;
         DeadZone = deadZone;
